@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PumpController;
+use App\Http\Controllers\HouseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +14,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::resource('/pumps', PumpController::class);
+Route::resource('/houses', HouseController::class);
 
 Route::get('/', function () {
     return view('welcome');
+});
+Route::get('/search', function () {
+    return view('search');
 });
