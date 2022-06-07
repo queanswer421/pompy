@@ -10,7 +10,7 @@ class House extends Model
     use HasFactory;
 
     protected $fillable = [
-        'surface', 'type', 'heatDemand', 'temp', 'cwu'
+        'surface', 'type', 'heatDemand', 'temp', 'cwu', 'heatDemand7'
     ];
 
 }

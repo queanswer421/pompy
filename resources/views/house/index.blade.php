@@ -11,7 +11,7 @@
         </div>
 
         <div class="flex justify-end mt-10">
-            <a href="{{ route('houses.create') }}" class="px-2 py-1 rounded-md bg-blue-500 text-sky-100 hover:bg-blue-700">+ Dodaj dom</a>
+            <a href="{{ route('house.create') }}" class="px-2 py-1 rounded-md bg-blue-500 text-sky-100 hover:bg-blue-700">+ Dodaj dom</a>
         </div>
 
         <div class="flex flex-col mt-10">
@@ -29,9 +29,10 @@
                             <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">ID</th>
                             <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Powierzchnia</th>
                             <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Typ budynku</th>
-                            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Emisyjność</th>
+                            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Emisyjność [kW]</th>
                             <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Temperatura grzania</th>
-                            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">CWU</th>
+                            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">CWU [kW]</th>
+                            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Emisyjność -7 [kW]</th>
 
                             <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50" width="180px">--</th>
                         </tr>
@@ -44,22 +45,23 @@
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $house->heatDemand }}</td>
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $house->temp }}</td>
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $house->cwu }}</td>
+                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $house->heatDemand7 }}</td>
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                    <form action="{{ route('houses.destroy',$house->id) }}" method="POST">
+                                    <!-- <form action="{{ route('house.destroy',$house->id) }}" method="POST"> -->
                         
-                                        <a class="text-indigo-600 hover:text-indigo-900" href="{{ route('houses.show',$house->id) }}">
+                                        <a class="text-indigo-600 hover:text-indigo-900" href="{{ route('house.show',$house->id) }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                         </a>
                                         
-                                        <a href="{{ route('houses.edit',$house->id) }}" class="text-indigo-600 hover:text-indigo-900 text-gray-600">
+                                        <!-- <a href="{{ route('house.edit',$house->id) }}" class="text-indigo-600 hover:text-indigo-900 text-gray-600">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                             </svg>
-                                        </a>
+                                        </a> -->
                        
-                                        @csrf
+                                        <!-- @csrf
                                         @method('DELETE')
                                         
                                         <button type="submit">
@@ -68,7 +70,7 @@
                                             </svg>
                                         </button>
 
-                                    </form>
+                                    </form> -->
                                 </td>
                             </tr>
                             @endforeach

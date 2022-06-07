@@ -15,7 +15,7 @@ use App\Http\Controllers\HouseController;
 |
 */
 Route::resource('/pumps', PumpController::class);
-Route::resource('/houses', HouseController::class);
+Route::resource('/house', HouseController::class);
 
 Route::get('/', function () {
     return view('welcome');

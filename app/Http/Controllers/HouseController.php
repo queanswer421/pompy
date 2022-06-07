@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\House;
+use App\Models\Pump;
 use Illuminate\Http\Request;
 
 class HouseController extends Controller
@@ -38,16 +39,22 @@ class HouseController extends Controller
      */
     public function store(Request $request)
     {
-        
+        // $request->input('heatDemand');
         $request->validate([
             'surface' => 'required',
             'type' => 'required',
             'temp' => 'required',
             'cwu' => 'required',
         ]);
-        $request->heatDemand = 10;
+
+        $data = $request->all();
+        $data['cwu'] = $data['cwu']*0.25;
+        $data['heatDemand'] = $data['surface']*$data['type']/1000;
+        $data['heatDemand7'] = ($data['heatDemand']/40)*27+$data['cwu'];
+        House::create($data);
+        
         // $request->surface*$request->type/1000;
-        House::create($request->all());
+        // House::create($request->all());
        
         return redirect()->route('houses.index')
                         ->with('success','Wycena pompy dodana.');
@@ -61,7 +68,8 @@ class HouseController extends Controller
      */
     public function show(House $house)
     {
-        //
+        $pumps = Pump::where('category', 1)->get();
+        return view('house.show', compact("pumps"));
     }
 
     /**

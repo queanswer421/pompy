@@ -19,7 +19,8 @@ return new class extends Migration
             $table->integer('type');
             $table->double('heatDemand');
             $table->double('temp');
-            $table->integer('cwu');
+            $table->double('cwu');
+            $table->double('heatDemand7');
             $table->timestamps();
         });
     }

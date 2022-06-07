@@ -41,9 +41,9 @@
                                 <label class="block text-sm font-bold text-gray-700" for="title">Typ</label>
                                 <input type="text" name="type" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Zapotrzebowanie W/m2">
                             </div>
-                            <div>
+                            <div hidden>
                                 <label class="block text-sm font-bold text-gray-700" for="title">Emisyjność:</label>
-                                <input name="heatDemand" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Emisyjność">
+                                <input name="heatDemand" value=0 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Emisyjność">
                             </div>
 
                             <div class="mt-4">
@@ -53,6 +53,11 @@
                             <div>
                                 <label class="block text-sm font-bold text-gray-700" for="title">CWU</label>
                                 <input type="text" name="cwu" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="CWU">
+                            </div>
+
+                            <div hidden>
+                                <label class="block text-sm font-bold text-gray-700" for="title">Emisyjność:</label>
+                                <input name="heatDemand7" value=0 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Emisyjność">
                             </div>
 
                             <div class="flex items-center justify-start mt-4 gap-x-2">
