@@ -14,7 +14,7 @@ use App\Http\Controllers\HouseController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('/pumps', PumpController::class);
+Route::resource('/pump', PumpController::class);
 Route::resource('/house', HouseController::class);
 
 Route::get('/', function () {

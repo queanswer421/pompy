@@ -56,7 +56,7 @@ class HouseController extends Controller
         // $request->surface*$request->type/1000;
         // House::create($request->all());
        
-        return redirect()->route('houses.index')
+        return redirect()->route('house.index')
                         ->with('success','Wycena pompy dodana.');
     }
 
@@ -68,8 +68,14 @@ class HouseController extends Controller
      */
     public function show(House $house)
     {
-        $pumps = Pump::where('category', 1)->get();
-        return view('house.show', compact("pumps"));
+        $pumps1 = Pump::where([['category', 1],['power45','>=',$house->heatDemand7]])->orderBy('power45', 'ASC')->take(1)->get();
+        $pumps2 = Pump::where([['category', 2],['power45','>=',$house->heatDemand7]])->orderBy('power45', 'ASC')->take(1)->get();
+        $pumps3 = Pump::where([['category', 3],['power45','>=',$house->heatDemand7]])->orderBy('power45', 'ASC')->take(1)->get();
+        $pumps4 = Pump::where([['category', 2],['power45','>=',$house->heatDemand7]])->orderBy('power45', 'ASC')->take(1)->first();
+        $pumps5 = Pump::where([['category', 2],['power45','>=',$house->heatDemand7]])->orderBy('power45', 'ASC')->take(1)->first();
+        // dd($pumps5);
+    
+        return view('house.show', compact("pumps1", "pumps2", "pumps3", "pumps5" ), ['name' => $pumps4]);
     }
 
     /**

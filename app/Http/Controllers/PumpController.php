@@ -45,7 +45,7 @@ class PumpController extends Controller
       
         Pump::create($request->all());
        
-        return redirect()->route('pumps.index')
+        return redirect()->route('pump.index')
                         ->with('success','Pompa ciepła została dodana.');
     }
 

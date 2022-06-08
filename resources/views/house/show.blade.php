@@ -1,4 +1,4 @@
-@extends('house.layout')
+@extends('layouts.backend')
  
 @section('content')
 
@@ -6,8 +6,18 @@
 
         <div class="mb-4">
             <h1 class="text-3xl font-bold text-center">
-            @foreach ($pumps as $pump)
-                <div> {{ $pump->name }} </div>
+            @foreach ($pumps1 as $pump1)
+                <div> {{ $pump1->name }} {{ $pump1->power45 }} </div>
+            @endforeach
+            <hr>
+            {{$name->category}}
+
+
+
+
+            <hr>
+            @foreach ($pumps3 as $pump3)
+                <div> {{ $pump3->name }} {{ $pump3->power45 }} </div>
             @endforeach
             </h1>
         </div>

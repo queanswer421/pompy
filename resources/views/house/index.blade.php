@@ -1,17 +1,17 @@
-@extends('house.layout')
+@extends('layouts.backend')
  
 @section('content')
 
-    <div class="max-w-4xl mx-auto mt-8">
+    <div class="mx-auto mt-8">
 
         <div class="mb-4">
             <h1 class="text-3xl font-bold text-center">
-                Domy 
+                Domy wycenione
             </h1>
         </div>
 
-        <div class="flex justify-end mt-10">
-            <a href="{{ route('house.create') }}" class="px-2 py-1 rounded-md bg-blue-500 text-sky-100 hover:bg-blue-700">+ Dodaj dom</a>
+        <div class="flex justify-start mt-10">
+            <a href="{{ route('house.create') }}" class="px-2 py-1 rounded-md bg-green-500 text-white hover:bg-green-700">Dodaj dom</a>
         </div>
 
         <div class="flex flex-col mt-10">
