@@ -2,7 +2,7 @@
  
 @section('content')
 
-    <div class="mx-auto mt-8">
+<div class="m-4 mb-8">
 
         <div class="mb-4">
             <h1 class="text-3xl font-bold text-center">
