@@ -16,6 +16,7 @@
       defer
     ></script>
     <script src="/js/init-alpine.js"></script>
+    <script src="{{ asset('js/pizza.js')}}"></script>
   </head>
   <body>
     <div

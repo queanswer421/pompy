@@ -16,7 +16,7 @@
 </div>
 
 <div class="m-10 px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10">
-<!-- @if ($errors->any())
+@if ($errors->any())
                         <div class="p-3 rounded bg-red-500 text-white m-3">
                             <strong>....</strong> ...<br><br>
                             <ul>
@@ -25,13 +25,25 @@
                                 @endforeach
                             </ul>
                         </div>
-                    @endif -->
+                    @endif
 <form action="{{ route('pump.store') }}" method="POST">
 @csrf
     <div class="row">
-        <div class="col-md-6 form-group mb-2">
+        <!-- <div class="col-md-6 form-group mb-2">
             <label class="block text-sm font-bold text-gray-700" for="title">Producent</label>
             <input type="text" name="prod" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Nazwa pompy">
+        </div> -->
+        <div class="col-md-6 form-group mb-2">
+        <label class="block text-sm font-bold text-gray-700" for="title">Producent</label>
+        <select name="producent" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Standard pompy" aria-label="Default select example">
+            <option value="0" selected disabled>Wybierz producenta pompy</option>    
+            <option value="Hyunday" >Hyunday</option>
+            <option value="Dimplex">Dimplex</option>
+            <option value="Buderus">Buderus</option>
+        </select>
+            <!-- <label class="block text-sm font-bold text-gray-700" for="title">Typ</label>
+            <input type="text" name="type" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Zapotrzebowanie W/m2">
+         -->
         </div>
         <div class="col-md-6 form-group mb-2">
             <label class="block text-sm font-bold text-gray-700" for="title">Nazwa</label>
@@ -39,13 +51,26 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 form-group mb-2">
+
+    <div class="col-md-6 form-group mb-2">
+        <label class="block text-sm font-bold text-gray-700" for="title">Standard pompy</label>
+        <select name="category" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Standard pompy" aria-label="Default select example">
+            <option value="0" selected disabled>Wybierz standard pompy</option>    
+            <option value="3" >Basic</option>
+            <option value="2">Standard</option>
+            <option value="1">Pro</option>
+        </select>
+            <!-- <label class="block text-sm font-bold text-gray-700" for="title">Typ</label>
+            <input type="text" name="type" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Zapotrzebowanie W/m2">
+         -->
+        </div>
+        <!-- <div class="col-md-6 form-group mb-2">
             <label class="block text-sm font-bold text-gray-700" for="title">Kategoria</label>
             <input type="text" name="category" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Kategoria">
-        </div>
+        </div> -->
         <div class="col-md-6 form-group mb-2">
             <label class="block text-sm font-bold text-gray-700" for="title">Temperatura Biwalentna</label>
-            <input type="text" name="tempBiwa" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Temperatura biwalentna">
+            <input value="0" type="text" name="tempBiwa" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Temperatura biwalentna">
         </div>
     </div>
     <div class="row">
