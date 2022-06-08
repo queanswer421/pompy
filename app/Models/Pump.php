@@ -10,7 +10,7 @@ class Pump extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'category', 'tempBiwa', 'power35', 'power45', 'power55', 'volume', 'price'
+        'producer', 'model', 'category', 'tempBiwa', 'power35', 'power45', 'power55', 'volume', 'price'
     ];
 
 }

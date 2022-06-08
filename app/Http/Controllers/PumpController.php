@@ -39,7 +39,8 @@ class PumpController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'producer' => 'required',
+            'model' => 'required',
             'category' => 'required',
         ]);
       

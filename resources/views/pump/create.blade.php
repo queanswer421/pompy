@@ -35,7 +35,7 @@
         </div> -->
         <div class="col-md-6 form-group mb-2">
         <label class="block text-sm font-bold text-gray-700" for="title">Producent</label>
-        <select name="producent" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Standard pompy" aria-label="Default select example">
+        <select name="producer" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Standard pompy" aria-label="Default select example">
             <option value="0" selected disabled>Wybierz producenta pompy</option>    
             <option value="Hyunday" >Hyunday</option>
             <option value="Dimplex">Dimplex</option>
@@ -47,7 +47,7 @@
         </div>
         <div class="col-md-6 form-group mb-2">
             <label class="block text-sm font-bold text-gray-700" for="title">Nazwa</label>
-            <input type="text" name="name" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Nazwa pompy">
+            <input type="text" name="model" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Nazwa pompy">
         </div>
     </div>
     <div class="row">

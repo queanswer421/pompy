@@ -27,7 +27,8 @@
                      <table class="min-w-full">
                         <tr>
                             <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">ID</th>
-                            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Nazwa</th>
+                            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Producent</th>
+                            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Model</th>
                             <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Kategoria</th>
                             <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Temperatura Biwalentna</th>
                             <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Moc 35</th>
@@ -41,6 +42,7 @@
                             @foreach ($pump as $pump)
                             <tr>
                                 <td class="px-6 whitespace-no-wrap border-b border-gray-200">{{ ++$i }}</td>
+                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $pump->producer }}</td>
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $pump->name }}</td>
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $pump->category }}</td>
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $pump->tempBiwa }}</td>

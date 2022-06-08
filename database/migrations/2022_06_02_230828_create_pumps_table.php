@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('pumps', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('producer');
+            $table->string('model');
             $table->integer('category');
             $table->double('tempBiwa');
             $table->double('power35');
