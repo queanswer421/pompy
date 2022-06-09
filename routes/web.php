@@ -17,9 +17,12 @@ use App\Http\Controllers\HouseController;
 Route::resource('/pump', PumpController::class);
 Route::resource('/house', HouseController::class);
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/search', function () {
-    return view('search');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+// Route::get('/search', function () {
+//     return view('search');
+// });
+Route::get('/test', function () {
+    return view('test.create');
 });
