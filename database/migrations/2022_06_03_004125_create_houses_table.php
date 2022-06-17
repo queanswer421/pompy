@@ -20,7 +20,9 @@ return new class extends Migration
             $table->double('heatDemand');
             $table->double('temp');
             $table->double('cwu');
-            $table->double('heatDemand7');
+            $table->double('heatDemandM15');
+            $table->double('heatDemandM7');
+            $table->double('heatDemandP2');
             $table->timestamps();
         });
     }

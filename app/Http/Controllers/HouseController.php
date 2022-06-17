@@ -50,7 +50,9 @@ class HouseController extends Controller
         $data = $request->all();
         $data['cwu'] = $data['cwu']*0.25;
         $data['heatDemand'] = $data['surface']*$data['type']/1000;
-        $data['heatDemand7'] = ($data['heatDemand']/40)*27+$data['cwu'];
+        $data['heatDemandM15'] = ($data['heatDemand']/40)*35+$data['cwu'];
+        $data['heatDemandM7'] = ($data['heatDemand']/40)*27+$data['cwu'];
+        $data['heatDemandP2'] = ($data['heatDemand']/40)*18+$data['cwu'];
         House::create($data);
         
         // $request->surface*$request->type/1000;
@@ -68,14 +70,16 @@ class HouseController extends Controller
      */
     public function show(House $house)
     {
-        $pumps1 = Pump::where([['category', 1],['power45','>=',$house->heatDemand7]])->orderBy('power45', 'ASC')->take(1)->get();
-        $pumps2 = Pump::where([['category', 2],['power45','>=',$house->heatDemand7]])->orderBy('power45', 'ASC')->take(1)->get();
-        $pumps3 = Pump::where([['category', 3],['power45','>=',$house->heatDemand7]])->orderBy('power45', 'ASC')->take(1)->get();
-        $pumps4 = Pump::where([['category', 2],['power45','>=',$house->heatDemand7]])->orderBy('power45', 'ASC')->take(1)->first();
-        $pumps5 = Pump::where([['category', 2],['power45','>=',$house->heatDemand7]])->orderBy('power45', 'ASC')->take(1)->first();
-        // dd($pumps5);
+        // $pumps1 = Pump::where([['category_id', 1],['p35M7','>=',$house->heatDemandM7]])->orderBy('p35M7', 'ASC')->take(1)->get();
+        // $pumps2 = Pump::where([['category_id', 2],['p35M7','>=',$house->heatDemandM7]])->orderBy('p35M7', 'ASC')->take(1)->get();
+        // $pumps3 = Pump::where([['category_id', 3],['p35M7','>=',$house->heatDemandM7]])->orderBy('p35M7', 'ASC')->take(1)->get();
+        // $pumps4 = Pump::where([['category_id', 2],['p35M7','<=',$house->heatDemandM7]])->orderBy('p35M7', 'ASC')->take(1)->first();
+        $standard = Pump::where('category_id', 2)->get();
+        // $pumps7 = Pump::first();
+        dd($standard);
     
-        return view('house.show', compact("pumps1", "pumps2", "pumps3", "pumps5" ), ['name' => $pumps4]);
+        return view('house.show', compact("standard"));
+        // return view('house.show', compact("pumps1", "pumps2", "pumps3", "pumps5" ), ['name' => $pumps4]);
     }
 
     /**

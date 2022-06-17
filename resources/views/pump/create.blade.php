@@ -46,19 +46,22 @@
          -->
         </div>
         <div class="col-md-6 form-group mb-2">
-            <label class="block text-sm font-bold text-gray-700" for="title">Nazwa</label>
-            <input type="text" name="model" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Nazwa pompy">
+            <label class="block text-sm font-bold text-gray-700" for="title">Linia</label>
+            <input type="text" name="line" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Linia pompy">
         </div>
     </div>
     <div class="row">
-
+    <div class="col-md-6 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">Nazwa</label>
+            <input type="text" name="model" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Nazwa pompy">
+    </div>
     <div class="col-md-6 form-group mb-2">
         <label class="block text-sm font-bold text-gray-700" for="title">Standard pompy</label>
-        <select name="category" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Standard pompy" aria-label="Default select example">
+        <select name="category_id" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Standard pompy" aria-label="Default select example">
             <option value="0" selected disabled>Wybierz standard pompy</option>    
-            <option value="3" >Basic</option>
-            <option value="2">Standard</option>
-            <option value="1">Pro</option>
+            <option value=3 >Basic</option>
+            <option value=2 >Standard</option>
+            <option value=1 >Pro</option>
         </select>
             <!-- <label class="block text-sm font-bold text-gray-700" for="title">Typ</label>
             <input type="text" name="type" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Zapotrzebowanie W/m2">
@@ -68,11 +71,124 @@
             <label class="block text-sm font-bold text-gray-700" for="title">Kategoria</label>
             <input type="text" name="category" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Kategoria">
         </div> -->
-        <div class="col-md-6 form-group mb-2">
+        <!-- <div class="col-md-6 form-group mb-2">
             <label class="block text-sm font-bold text-gray-700" for="title">Temperatura Biwalentna</label>
             <input value="0" type="text" name="tempBiwa" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Temperatura biwalentna">
+        </div> -->
+    </div>
+<fieldset class="border border-solid border-3 border-green-500 p-3">
+    <legend>Ogrzewanie podłogowe (35):</legend>
+    <div class="row">
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">-20</label>
+            <input type="number" step="0.01" name="p35m20" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp -20">
+        </div>
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">-15</label>
+            <input type="number" step="0.01" name="p35m15" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp -15">
+        </div>
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">-7</label>
+            <input type="number" step="0.01" name="p35m7" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp -7">
+        </div>
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">2</label>
+            <input type="number" step="0.01" name="p35p2" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp2 ">
+        </div>
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">7</label>
+            <input type="number" step="0.01" name="p35p7" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp 7">
+        </div>
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">10</label>
+            <input type="number" step="0.01" name="p35p10" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp 10">
+        </div>
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">12</label>
+            <input type="number" step="0.01" name="p35p12" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp 12">
+        </div>
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">20</label>
+            <input type="number" step="0.01" name="p35p20" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp 20">
         </div>
     </div>
+</fieldset>
+<fieldset class="border border-solid border-3 border-green-500 p-3">
+    <legend>Ogrzewanie podłogowe + grzejniki (45):</legend>
+    <div class="row">
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">-20</label>
+            <input type="number" step="0.01" name="p45m20" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp -20">
+        </div>
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">-15</label>
+            <input type="number" step="0.01" name="p45m15" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp -15">
+        </div>
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">-7</label>
+            <input type="number" step="0.01" name="p45m7" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp -7">
+        </div>
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">2</label>
+            <input type="number" step="0.01" name="p45p2" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp2 ">
+        </div>
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">7</label>
+            <input type="number" step="0.01" name="p45p7" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp 7">
+        </div>
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">10</label>
+            <input type="number" step="0.01" name="p45p10" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp 10">
+        </div>
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">12</label>
+            <input type="number" step="0.01" name="p45p12" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp 12">
+        </div>
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">20</label>
+            <input type="number" step="0.01" name="p45p20" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp 20">
+        </div>
+    </div>
+</fieldset>
+<fieldset class="border border-solid border-3 border-green-500 p-3">
+    <legend>Ogrzewanie grzejnikami (55):</legend>
+    <div class="row">
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">-20</label>
+            <input type="number" step="0.01" name="p55m20" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp -20">
+        </div>
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">-15</label>
+            <input type="number" step="0.01" name="p55m15" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp -15">
+        </div>
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">-7</label>
+            <input type="number" step="0.01" name="p55m7" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp -7">
+        </div>
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">2</label>
+            <input type="number" step="0.01" name="p55p2" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp2 ">
+        </div>
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">7</label>
+            <input type="number" step="0.01" name="p55p7" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp 7">
+        </div>
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">10</label>
+            <input type="number" step="0.01" name="p55p10" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp 10">
+        </div>
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">12</label>
+            <input type="number" step="0.01" name="p55p12" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp 12">
+        </div>
+        <div class="col-md-3 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="title">20</label>
+            <input type="number" step="0.01" name="p55p20" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp 20">
+        </div>
+    </div>
+</fieldset>
+
+<!-- 
     <div class="row">
         <div class="col-md-4 form-group mb-2">
         <label class="block text-sm font-bold text-gray-700" for="title">Moc 35</label>
@@ -86,7 +202,7 @@
             <label class="block text-sm font-bold text-gray-700" for="title">Moc 55</label>
             <input type="text" name="power55" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy 55">
         </div>
-    </div>
+    </div> -->
     <div class="row">
         <div class="col-md-6 form-group mb-2">
         <label class="block text-sm font-bold text-gray-700" for="title">Głosność</label>

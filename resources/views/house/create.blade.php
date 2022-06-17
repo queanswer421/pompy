@@ -49,7 +49,7 @@
         <label class="block text-sm font-bold text-gray-700" for="title">Typ budynku</label>
         <select name="type" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Zapotrzebowanie W/m2" aria-label="Default select example">
             <option value="0" disabled>Wybierz rodzaj budynku</option>
-            <option value="0">Budynek pasywny</option>
+            <option value="15">Budynek pasywny</option>
             <option value="25">Budynek niskoenergetyczny wentylacja mechaniczna</option>
             <option value="40">Budynek energooszcędny wentylacja mechaniczna</option>
             <option value="50">Nowy budynek z wentylacją grawitacyjną</option>
