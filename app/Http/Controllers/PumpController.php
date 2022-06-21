@@ -84,6 +84,29 @@ class PumpController extends Controller
      * @param  \App\Models\Pump  $pump
      * @return \Illuminate\Http\Response
      */
+    public function wylicz($arrayHelp, $array){
+    //uzupełnienie punktow które sa puste.
+    //2 i 7 muszą być podane...
+        if (is_null($array[2])){
+        $array[2] = round($array[3] - ((abs($array[3] - $array[4]))/(abs($arrayHelp[3]-$arrayHelp[4])))*abs($arrayHelp[2]-$arrayHelp[3]),2);
+        }
+        if (is_null($array[1])){
+        $array[1] = round($array[2] - ((abs($array[2] - $array[3]))/(abs($arrayHelp[2]-$arrayHelp[3])))*abs($arrayHelp[1]-$arrayHelp[2]),2);
+        }
+        if (is_null($array[0])){
+        $array[0] = round($array[1] - ((abs($array[1] - $array[2]))/(abs($arrayHelp[1]-$arrayHelp[2])))*abs($arrayHelp[0]-$arrayHelp[1]),2);
+        }
+        if (is_null($array[5])){
+        $array[5] = round($array[4] + ((abs($array[3] - $array[4]))/(abs($arrayHelp[3]-$arrayHelp[4])))*abs($arrayHelp[5]-$arrayHelp[4]),2);
+        }
+        if (is_null($array[6])){
+        $array[6] = round($array[5] + ((abs($array[4] - $array[5]))/(abs($arrayHelp[4]-$arrayHelp[5])))*abs($arrayHelp[6]-$arrayHelp[5]),2);
+        }
+        if (is_null($array[7]) || $array[7] == 0){
+        $array[7] = round($array[6] + ((abs($array[5] - $array[6]))/(abs($arrayHelp[5]-$arrayHelp[6])))*abs($arrayHelp[7]-$arrayHelp[6]),2);
+        }
+        return $array;
+    }
     public function show(Pump $pump)
     {
         // dd($pump);
@@ -118,17 +141,28 @@ class PumpController extends Controller
             $pump->p35p12,
             $pump->p35p20,
         );
-        $arrayAdd = array(
-            null,
-            null,
-            55,
-            1.2,
-            2,
-            3,
-            null,
-            null
+        $arrayHelp = array(-20, -15, -7, 2, 7, 10, 12, 20 );
+        // $a0 = $this->wylicz();
+        // $a1 = $this->wylicz();
+        // $a0 = $this->wylicz($arrayHelp, $array);
+        $arrayAdd = $this->wylicz($arrayHelp, $array);
+        // $a3 = $this->wylicz();
+        // $a4 = $this->wylicz();
+        // $a5 = $this->wylicz();
+        // $a6 = $this->wylicz();
+        // $a7 = $this->wylicz();
 
-        );
+        // $arrayAdd = array(
+        //     $a0,
+        //     abs(-100),
+        //     null,
+        //     4.2,
+        //     2,
+        //     3,
+        //     null,
+        //     null
+        // );
+
         foreach($arrayAdd as $index => $ar) {
             if ($arrayAdd[$index] == null){
                 //szukaj starszego
