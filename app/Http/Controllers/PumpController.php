@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Heat35;
+use App\Models\Heat45;
+use App\Models\Heat55;
 use App\Models\Pump;
 
 use Illuminate\Http\Request;
@@ -72,7 +75,20 @@ class PumpController extends Controller
         // $request->input('p35p20');
         // $request->input('p45p20');
         // $request->input('p55p20');
-        Pump::create($request->all());
+        $pump = Pump::create($request->all());
+        $heat35 = new Heat35($request->all());
+        $heat35->pump_id = $pump->id;
+        $heat35->save();
+        $heat45 = new Heat45($request->all());
+        $heat45->pump_id = $pump->id;
+        $heat45->save();
+        $heat55 = new Heat55($request->all());
+        $heat55->pump_id = $pump->id;
+        $heat55->save();
+        // $heat35 = Heat35::create($request->all());
+        // $heat35->pump()->save($heat35);
+        // $pump->heat35()->save($pump);
+
        
         return redirect()->route('pump.index')
                         ->with('success','Pompa ciepła została dodana.');
@@ -132,14 +148,14 @@ class PumpController extends Controller
         //   );
 
         $array = array(
-            $pump->p35m20,
-            $pump->p35m15,
-            $pump->p35m7,
-            $pump->p35p2,
-            $pump->p35p7,
-            $pump->p35p10,
-            $pump->p35p12,
-            $pump->p35p20,
+            $pump->heat35->p35m20,
+            $pump->heat35->p35m15,
+            $pump->heat35->p35m7,
+            $pump->heat35->p35p2,
+            $pump->heat35->p35p7,
+            $pump->heat35->p35p10,
+            $pump->heat35->p35p12,
+            $pump->heat35->p35p20,
         );
         $arrayHelp = array(-20, -15, -7, 2, 7, 10, 12, 20 );
         // $a0 = $this->wylicz();

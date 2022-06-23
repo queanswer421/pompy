@@ -70,15 +70,56 @@ class HouseController extends Controller
      */
     public function show(House $house)
     {
+        $chart = [-21, -15, -7, 2, 7, 10, 12, 20];
+        $chartHouse = [
+         $house->heatDemand,
+         ($house->heatDemand/40)*35,
+        ($house->heatDemand/40)*27,
+        ($house->heatDemand/40)*18,
+        ($house->heatDemand/40)*13,
+         ($house->heatDemand/40)*10,
+         ($house->heatDemand/40)*8,
+         ($house->heatDemand/40)*0];
+        
         // $pumps1 = Pump::where([['category_id', 1],['p35M7','>=',$house->heatDemandM7]])->orderBy('p35M7', 'ASC')->take(1)->get();
         // $pumps2 = Pump::where([['category_id', 2],['p35M7','>=',$house->heatDemandM7]])->orderBy('p35M7', 'ASC')->take(1)->get();
         // $pumps3 = Pump::where([['category_id', 3],['p35M7','>=',$house->heatDemandM7]])->orderBy('p35M7', 'ASC')->take(1)->get();
         // $pumps4 = Pump::where([['category_id', 2],['p35M7','<=',$house->heatDemandM7]])->orderBy('p35M7', 'ASC')->take(1)->first();
         $standard = Pump::where('category_id', 2)->get();
-        // $pumps7 = Pump::first();
-        dd($standard);
+
+            for ($i=$chart[1]; $i <= $chart[2]; $i++) { 
+                $heat = ($house->heatDemand/40)*abs($i-20);
+                $pump = $standard[0]->heat35->p35m15 + (($i+15)*(($standard[0]->heat35->p35m7 - $standard[0]->heat35->p35m15)/($chart[2]-$chart[1])));
+                if ($heat >= $pump){
+                echo $i ." ". ($house->heatDemand/40)*abs($i-20) ." ".$pump. "<br>";
+                }
+                else {
+                    echo "<b>". $i ." ". ($house->heatDemand/40)*abs($i-20) ." ".$pump. "<b><br>";
     
-        return view('house.show', compact("standard"));
+                    break;
+                }
+            }
+
+
+        // for ($i=-7; $i <= 2; $i++) { 
+        //     $heat = ($house->heatDemand/40)*abs($i-20);
+        //     $pump = $standard[0]->p35m7 + (($i+7)*(($standard[0]->p35p2 - $standard[0]->p35m7)/9));
+        //     if ($heat >= $pump){
+        //     echo  $i ." ". ($house->heatDemand/40)*abs($i-20) ." ".$pump. "<br>";
+        //     }
+        //     else {
+        //         echo "<b>". $i ." ". ($house->heatDemand/40)*abs($i-20) ." ".$pump. "<b><br>";
+        //     }
+        // }
+
+        // $pumps7 = Pump::first();
+        // dd($house);
+        // dd($standard);
+        // foreach($chart as $i => $cha){
+        //     if ($chartHouse[$i] > 3)
+        //     $chartHouse[$i] = 9;            
+        // }
+        return view('house.show', compact('house',"standard", 'chartHouse'));
         // return view('house.show', compact("pumps1", "pumps2", "pumps3", "pumps5" ), ['name' => $pumps4]);
     }
 
