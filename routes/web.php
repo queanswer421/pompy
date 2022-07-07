@@ -23,6 +23,9 @@ Route::resource('/house', HouseController::class);
 // Route::get('/search', function () {
 //     return view('search');
 // });
-Route::get('/test', function () {
-    return view('test.create');
-});
+Route::get('/', function () {
+    return view('home');
+})->name('home');
+Route::get('/price', function () {
+    return view('price');
+})->name('price');
