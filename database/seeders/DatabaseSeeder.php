@@ -14,15 +14,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        App\Category::create([
+        App\Models\Category::create([
             'id' =>  1
             'name' => 'Pro',
         ]);
-        App\Category::create([
+        App\Models\Category::create([
             'id' =>  2
             'name' => 'Standard',
         ]);
-        App\Category::create([
+        App\Models\Category::create([
             'id' =>  3
             'name' => 'Basic',
         ]);
