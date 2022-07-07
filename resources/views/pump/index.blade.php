@@ -11,7 +11,10 @@
         </div>
 
         <div class="flex justify-start mt-10">
-            <a href="{{ route('pump.create') }}" class="px-2 py-1 rounded-md bg-green-500 text-white hover:bg-green-700">Dodaj Pompe Ciepła</a>
+            <a href="{{ route('pump.create') }}" 
+            {{-- class="px-2 py-1 rounded-md bg-green-500 text-white hover:bg-green-700" --}}
+            class="ml-8 px-4 py-2 rounded shadow-sm font-medium text-white bg-purple-700 hover:bg-gray-700"
+            >Dodaj Pompe Ciepła</a>
         </div>
 
         <div class="flex flex-col mt-10">

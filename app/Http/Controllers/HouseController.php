@@ -70,7 +70,7 @@ class HouseController extends Controller
      */
     public function show(House $house)
     {
-        $chart = [-21, -15, -7, 2, 7, 10, 12, 20];
+        $chart = [-20, -15, -7, 2, 7, 10, 12, 20];
         $chartHouse = [
          $house->heatDemand,
          ($house->heatDemand/40)*35,
@@ -87,19 +87,57 @@ class HouseController extends Controller
         // $pumps4 = Pump::where([['category_id', 2],['p35M7','<=',$house->heatDemandM7]])->orderBy('p35M7', 'ASC')->take(1)->first();
         $standard = Pump::where('category_id', 2)->get();
 
-            for ($i=$chart[1]; $i <= $chart[2]; $i++) { 
-                $heat = ($house->heatDemand/40)*abs($i-20);
-                $pump = $standard[0]->heat35->p35m15 + (($i+15)*(($standard[0]->heat35->p35m7 - $standard[0]->heat35->p35m15)/($chart[2]-$chart[1])));
-                if ($heat >= $pump){
-                echo $i ." ". ($house->heatDemand/40)*abs($i-20) ." ".$pump. "<br>";
-                }
-                else {
-                    echo "<b>". $i ." ". ($house->heatDemand/40)*abs($i-20) ." ".$pump. "<b><br>";
-    
-                    break;
+            for($n=0;$n<$standard->count();$n++){
+                $array35 = [
+                    $standard[$n]->heat35->p35m20,
+                    $standard[$n]->heat35->p35m15,
+                    $standard[$n]->heat35->p35m7,
+                    $standard[$n]->heat35->p35p2,
+                    $standard[$n]->heat35->p35p7,
+                    $standard[$n]->heat35->p35p10,
+                    $standard[$n]->heat35->p35p12,
+                    $standard[$n]->heat35->p35p20
+                ];
+                for ($i = 0; $i<=7; $i++){
+                    if($i<7){
+                        echo "<br><b>".$chart[$i]." => </b>";
+                        for($j = 0;$j<=abs($chart[$i+1]-$chart[$i])-1;$j++){
+                            $heat = ($house->heatDemand/40)*abs($chart[$i]-20-$j);
+                            $pump = $array35[$i] + ($j)*($array35[$i+1] - $array35[$i])/abs($chart[$i+1]-$chart[$i]);
+                            echo $pump.", <b>".$heat. " , </b>";
+  
+                            if ($heat <= $pump){
+                                    echo "+";
+                                }
+                                else {
+                                    $standard[$n]->temp = $chart[$i]+$j+1;
+                                    echo "<<".$chart[$i]+$j.">>";   
+                                }
+                        }
+                    }
+                    else 
+                    echo "<br><b>".$chart[7]." => ".$array35[7]."</b>";
                 }
             }
 
+
+            // for ($i=20; $i <= 20; $i++) { 
+            //     echo $i ." ";
+            //     for ($j = 0; $j < $standard->count(); $j++){
+            //         echo $standard[$j]->producer." ".$standard[$j]->model."<br>";
+            //         $standard[$j]->temp = $j + 100;
+            //     }
+            //     // $heat = ($house->heatDemand/40)*abs($i-20);
+            //     // $pump = $standard[0]->heat35->p35m15 + (($i+15)*(($standard[0]->heat35->p35m7 - $standard[0]->heat35->p35m15)/($chart[2]-$chart[1])));
+            //     // if ($heat >= $pump){
+            //     // echo ($house->heatDemand/40)*abs($i-20) ." ".$pump. "<br>";
+            //     // }
+            //     // else {
+            //     //     echo "<b>". $i ." ". ($house->heatDemand/40)*abs($i-20) ." ".$pump. "<b><br>";
+            //     //     break;
+            //     // }
+            // }
+            //     echo "<b>".$standard[2]->temp."<b>";
 
         // for ($i=-7; $i <= 2; $i++) { 
         //     $heat = ($house->heatDemand/40)*abs($i-20);

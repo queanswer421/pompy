@@ -4,8 +4,8 @@
 
 
 <hr />
-<div class="row mx-auto mt-4">
-        <div class="mb-2">
+<div class="flex justify-center">
+        <div class="mb-0">
             <h1 class="text-3xl font-bold">
                 Dodaj pompe ciepła
             </h1>
@@ -28,7 +28,7 @@
                     @endif
 <form action="{{ route('pump.store') }}" method="POST">
 @csrf
-    <div class="row">
+    <div class="grid md:grid-cols-2 gap-8">
         <!-- <div class="col-md-6 form-group mb-2">
             <label class="block text-sm font-bold text-gray-700" for="title">Producent</label>
             <input type="text" name="prod" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Nazwa pompy">
@@ -50,12 +50,12 @@
             <input type="text" name="line" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Linia pompy">
         </div>
     </div>
-    <div class="row">
+    <div class="grid md:grid-cols-2 gap-x-8">
     <div class="col-md-6 form-group mb-2">
             <label class="block text-sm font-bold text-gray-700" for="title">Nazwa</label>
             <input type="text" name="model" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Nazwa pompy">
     </div>
-    <div class="col-md-6 form-group mb-2">
+    <div class="col-md-6 form-group">
         <label class="block text-sm font-bold text-gray-700" for="title">Standard pompy</label>
         <select name="category_id" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Standard pompy" aria-label="Default select example">
             <option value="0" selected disabled>Wybierz standard pompy</option>    
@@ -66,7 +66,18 @@
             <!-- <label class="block text-sm font-bold text-gray-700" for="title">Typ</label>
             <input type="text" name="type" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Zapotrzebowanie W/m2">
          -->
-        </div>
+    </div>
+    <div class="mb-2">
+        <label class="block text-sm font-bold text-gray-700" for="title">Standard pompy</label>
+        <select name="category_id" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Standard pompy" aria-label="Default select example">
+            <option value="0" selected disabled>Wybierz typ pompy</option>    
+            <option value=3 >Split</option>
+            <option value=2 >Monoblok</option>
+        </select>
+            <!-- <label class="block text-sm font-bold text-gray-700" for="title">Typ</label>
+            <input type="text" name="type" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Zapotrzebowanie W/m2">
+         -->
+    </div>
         <!-- <div class="col-md-6 form-group mb-2">
             <label class="block text-sm font-bold text-gray-700" for="title">Kategoria</label>
             <input type="text" name="category" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Kategoria">
@@ -76,9 +87,11 @@
             <input value="0" type="text" name="tempBiwa" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Temperatura biwalentna">
         </div> -->
     </div>
+
+
 <fieldset class="border border-solid border-3 border-green-500 p-3">
     <legend>Ogrzewanie podłogowe (35):</legend>
-    <div class="row">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         <div class="col-md-3 form-group mb-2">
             <label class="block text-sm font-bold text-gray-700" for="title">-20</label>
             <input type="number" step="0.01" name="p35m20" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp -20">
@@ -115,7 +128,7 @@
 </fieldset>
 <fieldset class="border border-solid border-3 border-green-500 p-3">
     <legend>Ogrzewanie podłogowe + grzejniki (45):</legend>
-    <div class="row">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         <div class="col-md-3 form-group mb-2">
             <label class="block text-sm font-bold text-gray-700" for="title">-20</label>
             <input type="number" step="0.01" name="p45m20" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp -20">
@@ -152,7 +165,7 @@
 </fieldset>
 <fieldset class="border border-solid border-3 border-green-500 p-3">
     <legend>Ogrzewanie grzejnikami (55):</legend>
-    <div class="row">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         <div class="col-md-3 form-group mb-2">
             <label class="block text-sm font-bold text-gray-700" for="title">-20</label>
             <input type="number" step="0.01" name="p55m20" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy temp -20">
@@ -203,7 +216,7 @@
             <input type="text" name="power55" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Moc przy 55">
         </div>
     </div> -->
-    <div class="row">
+    <div class="grid md:grid-cols-2 gap-8">
         <div class="col-md-6 form-group mb-2">
         <label class="block text-sm font-bold text-gray-700" for="title">Głosność</label>
                                 <input type="text" name="volume" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Głosność">
@@ -214,7 +227,7 @@
         </div>
     </div>
     <div class="flex items-center justify-start mt-4 gap-x-2">
-        <button type="submit" class="px-6 py-2 text-sm font-semibold rounded-md shadow-md text-green-100 bg-green-500 hover:bg-green-700 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300">Zapisz</button>
+        <button type="submit" class="ml-8 px-4 py-2 rounded shadow-sm font-medium text-white bg-purple-700 hover:bg-gray-900">Zapisz</button>
     </div>
 
 </form>
