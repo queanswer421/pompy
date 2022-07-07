@@ -14,5 +14,17 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        DB::table('category')->insert([
+            'id' => 1,
+            'name' => 'Pro'
+        ]);
+        DB::table('category')->insert([
+            'id' => 2,
+            'name' => 'Standard'
+        ]);
+        DB::table('category')->insert([
+            'id' => 3,
+            'name' => 'Basic'
+        ]);
     }
 }
