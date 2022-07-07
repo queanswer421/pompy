@@ -105,19 +105,14 @@ class HouseController extends Controller
                             $heat = ($house->heatDemand/40)*abs($chart[$i]-20-$j);
                             $pump = $array35[$i] + ($j)*($array35[$i+1] - $array35[$i])/abs($chart[$i+1]-$chart[$i]);
                             echo $pump.", <b>".$heat. " , </b>";
-
-                                
+  
                             if ($heat <= $pump){
                                     echo "+";
                                 }
                                 else {
                                     $standard[$n]->temp = $chart[$i]+$j+1;
-                                    echo "<<".$chart[$i]+$j.">>";
-                                    
+                                    echo "<<".$chart[$i]+$j.">>";   
                                 }
-
-
-
                         }
                     }
                     else 
