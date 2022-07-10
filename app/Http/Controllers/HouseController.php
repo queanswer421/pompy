@@ -70,6 +70,7 @@ class HouseController extends Controller
      */
     public function show(House $house)
     {
+
         $chart = [-20, -15, -7, 2, 7, 10, 12, 20];
         $chartHouse = [
          $house->heatDemand,
@@ -85,7 +86,12 @@ class HouseController extends Controller
         // $pumps2 = Pump::where([['category_id', 2],['p35M7','>=',$house->heatDemandM7]])->orderBy('p35M7', 'ASC')->take(1)->get();
         // $pumps3 = Pump::where([['category_id', 3],['p35M7','>=',$house->heatDemandM7]])->orderBy('p35M7', 'ASC')->take(1)->get();
         // $pumps4 = Pump::where([['category_id', 2],['p35M7','<=',$house->heatDemandM7]])->orderBy('p35M7', 'ASC')->take(1)->first();
-        $standard = Pump::where('category_id', 2)->get();
+        //$standard = Pump::where('category_id', 2)->get();
+	
+$test = \App\Models\Category::all();
+echo $test;
+$standard = Pump::all();
+echo $standard[0]->heat35;
 
             for($n=0;$n<$standard->count();$n++){
                 $array35 = [
@@ -111,7 +117,8 @@ class HouseController extends Controller
                                 }
                                 else {
                                     $standard[$n]->temp = $chart[$i]+$j+1;
-                                    echo "<<".$chart[$i]+$j.">>";   
+				    $temp = $chart[$i]+$j;
+                                    echo "<<". $temp .">>";   
                                 }
                         }
                     }
