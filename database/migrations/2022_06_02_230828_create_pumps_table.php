@@ -15,9 +15,14 @@ return new class extends Migration
     {
         Schema::create('pumps', function (Blueprint $table) {
             $table->id();
-            $table->string('producer');
+            $table->unsignedBigInteger('producer_id')->default(1);
+            $table->foreign('producer_id')
+                ->references('id')
+                ->on('producers')
+                ->onDelete('cascade');
             $table->string('line');
             $table->string('model');
+            $table->double('power');
             $table->integer('type')->nullable()->default(0);
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')

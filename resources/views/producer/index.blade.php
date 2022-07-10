@@ -6,15 +6,15 @@
 
         <div class="mb-4">
             <h1 class="text-3xl font-bold text-center">
-                Pompy Ciepła
+                Producenci Pomp Ciepła
             </h1>
         </div>
 
         <div class="flex justify-start mt-10">
-            <a href="{{ route('pump.create') }}" 
+            <a href="{{route('producer.create')}}" 
             {{-- class="px-2 py-1 rounded-md bg-green-500 text-white hover:bg-green-700" --}}
             class="ml-8 px-4 py-2 rounded shadow-sm font-medium text-white bg-purple-700 hover:bg-gray-700"
-            >Dodaj Pompe Ciepła</a>
+            >Dodaj Producenta</a>
         </div>
 
         <div class="flex flex-col mt-10">
@@ -30,42 +30,24 @@
                      <table class="min-w-full">
                         <tr>
                             <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">ID</th>
-                            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Producent</th>
-                            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Linia</th>
-                            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Model</th>
-                            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Moc</th>
-                            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Kategoria</th>
-                            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Moc 35</th>
-                            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Moc 45</th>
-                            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Moc 55</th>
-                            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Głosność</th>
-                            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Cena</th>
+                            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Nazwa Producenta</th>
                             <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50" width="180px">--</th>
                         </tr>
                         <tbody class="bg-white">
-                            @foreach ($pump as $pump)
+                            @foreach ($producers as $producer)
                             <tr>
-                                <td class="px-6 whitespace-no-wrap border-b border-gray-200">{{ ++$i }}</td>
-                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $pump->producer->name }}</td>
-                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $pump->line }}</td>
-                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $pump->model }}</td>
-                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $pump->power }}</td>
-                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $pump->category->name }}</td>
-                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $pump->heat35->p35m7 }}</td>
-                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $pump->heat45->p45m7 }}</td>
-                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $pump->heat55->p55m7 }}</td>
-                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $pump->volume }}</td>
-                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $pump->price }}</td>
+                                <td class="px-6 whitespace-no-wrap border-b border-gray-200">{{ $producer->id }}</td>
+                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $producer->name }}</td>
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                    <!-- <form action="{{ route('pump.destroy',$pump->id) }}" method="POST"> -->
+                                    <!-- <form action="#" method="POST"> -->
                         
-                                        <a class="text-indigo-600 hover:text-indigo-900" href="{{ route('pump.show',$pump->id) }}">
+                                        {{-- <a class="text-indigo-600 hover:text-indigo-900" href="{{ route('pump.show',$pump->id) }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                        </a>
+                                        </a> --}}
                                         
-                                        <!-- <a href="{{ route('pump.edit',$pump->id) }}" class="text-indigo-600 hover:text-indigo-900 text-gray-600">
+                                        <!-- <a href=" route('pump.edit',$pump->id) " class="text-indigo-600 hover:text-indigo-900 text-gray-600">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                             </svg>

@@ -29,17 +29,13 @@
 <form action="{{ route('pump.store') }}" method="POST">
 @csrf
     <div class="grid md:grid-cols-2 gap-8">
-        <!-- <div class="col-md-6 form-group mb-2">
-            <label class="block text-sm font-bold text-gray-700" for="title">Producent</label>
-            <input type="text" name="prod" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Nazwa pompy">
-        </div> -->
         <div class="col-md-6 form-group mb-2">
-        <label class="block text-sm font-bold text-gray-700" for="title">Producent</label>
-        <select name="producer" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Standard pompy" aria-label="Default select example">
+        <label class="block text-sm font-bold text-gray-700" for="producer_id">Producent</label>
+        <select name="producer_id" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Standard pompy" aria-label="Default select example">
             <option value="0" selected disabled>Wybierz producenta pompy</option>    
-            <option value="Hyunday" >Hyunday</option>
-            <option value="Dimplex">Dimplex</option>
-            <option value="Buderus">Buderus</option>
+            @foreach ($producers as $producer)
+            <option value={{$producer->id}}>{{$producer->name}}</option>
+            @endforeach
         </select>
             <!-- <label class="block text-sm font-bold text-gray-700" for="title">Typ</label>
             <input type="text" name="type" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Zapotrzebowanie W/m2">
@@ -51,17 +47,23 @@
         </div>
     </div>
     <div class="grid md:grid-cols-2 gap-x-8">
-    <div class="col-md-6 form-group mb-2">
-            <label class="block text-sm font-bold text-gray-700" for="title">Nazwa</label>
-            <input type="text" name="model" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Nazwa pompy">
-    </div>
+        <div class="col-md-6 form-group mb-2">
+                <label class="block text-sm font-bold text-gray-700" for="title">Nazwa</label>
+                <input type="text" name="model" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Nazwa pompy">
+        </div>
+        <div class="col-md-6 form-group mb-2">
+            <label class="block text-sm font-bold text-gray-700" for="power">Moc pompy</label>
+            <input type="number" name="power" max="50" min="1" step="1" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Podaj moc pompy">
+            
+        </div>
     <div class="col-md-6 form-group">
-        <label class="block text-sm font-bold text-gray-700" for="title">Standard pompy</label>
+        <label class="block text-sm font-bold text-gray-700" for="category_id">Standard pompy</label>
         <select name="category_id" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Standard pompy" aria-label="Default select example">
-            <option value="0" selected disabled>Wybierz standard pompy</option>    
-            <option value=3 >Basic</option>
-            <option value=2 >Standard</option>
-            <option value=1 >Pro</option>
+            <option value=0 selected disabled>Wybierz standard pompy</option>    
+            @foreach ($categories as $category)
+            <option value={{$category->id}}>{{$category->name}}</option>
+            @endforeach
+
         </select>
             <!-- <label class="block text-sm font-bold text-gray-700" for="title">Typ</label>
             <input type="text" name="type" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Zapotrzebowanie W/m2">
@@ -69,9 +71,9 @@
     </div>
     <div class="mb-2">
         <label class="block text-sm font-bold text-gray-700" for="title">Standard pompy</label>
-        <select name="category_id" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Standard pompy" aria-label="Default select example">
-            <option value="0" selected disabled>Wybierz typ pompy</option>    
-            <option value=3 >Split</option>
+        <select name="construction_id" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Standard pompy" aria-label="Default select example">
+            <option value=0 selected disabled>Wybierz typ pompy</option>    
+            <option value=1 >Split</option>
             <option value=2 >Monoblok</option>
         </select>
             <!-- <label class="block text-sm font-bold text-gray-700" for="title">Typ</label>

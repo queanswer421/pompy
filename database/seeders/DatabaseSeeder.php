@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Category;
+use App\Models\Producer;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,6 +27,22 @@ class DatabaseSeeder extends Seeder
         Category::create([
             "id" => 3,
             "name" => "Basic"   
+        ]);
+        // Producer::create([
+        //     "id" => 1,
+        //     "name" => "UNKNOWN"   
+        // ]);
+        Producer::create([
+            "id" => 1,
+            "name" => "Dimplex"   
+        ]);
+        Producer::create([
+            "id" => 2,
+            "name" => "Hyunday"   
+        ]);
+        Producer::create([
+            "id" => 3,
+            "name" => "Buderus"   
         ]);
     }
 }

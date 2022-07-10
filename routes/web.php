@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PumpController;
 use App\Http\Controllers\HouseController;
+use App\Http\Controllers\ProducerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,7 @@ use App\Http\Controllers\HouseController;
 */
 Route::resource('/pump', PumpController::class);
 Route::resource('/house', HouseController::class);
+Route::resource('/producer', ProducerController::class);
 
 // Route::get('/', function () {
 //     return view('welcome');
