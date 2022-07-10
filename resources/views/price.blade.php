@@ -21,27 +21,27 @@
                     {{-- <h4 class="font-architect text-3xl text-purple-900">Basic</h4> --}}
                     <img src="https://wallbox.pl/img/imagecache/1001-2000/6ef1536475a6f8dee1fd0fe5941de622449a7794.jpg" class="w-full" alt="">
                     <p class="text-base mt-4">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime animi nostrum minus ullam consequatur consequuntur molestiae cumque similique. Quae magni ex dolore recusandae quibusdam officia, facere quia esse est quis?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     </p>
-                    <div class="text-6xl font-bold py-8 border-b border-gray-300 flex-grow">49 000 zł
-                        <span class="text-3xl font-normal"></span>
+                    <div class="text-6xl font-bold py-8 border-b border-gray-300 flex-grow">Producent model
+                        <span class="text-3xl font-normal">linia</span>
                     </div>
                     <ul class="my-6 space-y-5 flex-grow">
                         <li class="flex items-center">
                             <img src="{{ asset('assets/icons/checkmark.svg')}}" alt="checkmark">
-                            <span class="ml-3 text-base break-words">p1</span>
+                            <span class="ml-3 text-base break-words">temp biwa</span>
                         </li>
                         <li class="flex items-center">
                             <img src="{{ asset('assets/icons/checkmark.svg')}}" alt="checkmark">
-                            <span class="ml-3 text-base break-words">p2</span>
+                            <span class="ml-3 text-base break-words">moc (-7)</span>
                         </li>
                         <li class="flex items-center">
                             <img src="{{ asset('assets/icons/checkmark.svg')}}" alt="checkmark">
-                            <span class="ml-3 text-base break-words">p3</span>
+                            <span class="ml-3 text-base break-words">głośność u źródła</span>
                         </li>
                         <li class="flex items-center">
                             <img src="{{ asset('assets/icons/checkmark.svg')}}" alt="checkmark">
-                            <span class="ml-3 text-base break-words">p4</span>
+                            <span class="ml-3 text-base break-words">cena</span>
                         </li>
                     </ul>
                     <a href="#"

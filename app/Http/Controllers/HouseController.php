@@ -72,14 +72,15 @@ class HouseController extends Controller
     {
         $chart = [-20, -15, -7, 2, 7, 10, 12, 20];
         $chartHouse = [
-         $house->heatDemand,
-         ($house->heatDemand/40)*35,
-        ($house->heatDemand/40)*27,
-        ($house->heatDemand/40)*18,
-        ($house->heatDemand/40)*13,
-         ($house->heatDemand/40)*10,
-         ($house->heatDemand/40)*8,
-         ($house->heatDemand/40)*0];
+            $house->heatDemand,
+            ($house->heatDemand/40)*35,
+            ($house->heatDemand/40)*27,
+            ($house->heatDemand/40)*18,
+            ($house->heatDemand/40)*13,
+            ($house->heatDemand/40)*10,
+            ($house->heatDemand/40)*8,
+            ($house->heatDemand/40)*0
+        ];
         
         // $pumps1 = Pump::where([['category_id', 1],['p35M7','>=',$house->heatDemandM7]])->orderBy('p35M7', 'ASC')->take(1)->get();
         // $pumps2 = Pump::where([['category_id', 2],['p35M7','>=',$house->heatDemandM7]])->orderBy('p35M7', 'ASC')->take(1)->get();
@@ -100,23 +101,24 @@ class HouseController extends Controller
                 ];
                 for ($i = 0; $i<=7; $i++){
                     if($i<7){
-                        echo "<br><b>".$chart[$i]." => </b>";
+                    //    echo "<br><b>".$chart[$i]." => </b>";
                         for($j = 0;$j<=abs($chart[$i+1]-$chart[$i])-1;$j++){
                             $heat = ($house->heatDemand/40)*abs($chart[$i]-20-$j);
                             $pump = $array35[$i] + ($j)*($array35[$i+1] - $array35[$i])/abs($chart[$i+1]-$chart[$i]);
-                            echo $pump.", <b>".$heat. " , </b>";
+                    //        echo round($pump, 2).", <font color='red'>".$heat." ";
   
                             if ($heat <= $pump){
-                                    echo "+";
+                    //                echo "<b>+</b>";
                                 }
                                 else {
                                     $standard[$n]->temp = $chart[$i]+$j+1;
-                                    echo "<<".$chart[$i]+$j.">>";   
+                    //                echo "<<".$chart[$i]+$j.">>";   
                                 }
+                    //        echo " , </font>";
                         }
                     }
-                    else 
-                    echo "<br><b>".$chart[7]." => ".$array35[7]."</b>";
+                    else ;
+                   // echo "<br><b>".$chart[7]." => ".$array35[7]."</b>";
                 }
             }
 
@@ -157,6 +159,10 @@ class HouseController extends Controller
         //     if ($chartHouse[$i] > 3)
         //     $chartHouse[$i] = 9;            
         // }
+        // dd($house);
+        // dd($standard);
+        $standard = $standard->sortByDesc('temp')->values()->all();
+
         return view('house.show', compact('house',"standard", 'chartHouse'));
         // return view('house.show', compact("pumps1", "pumps2", "pumps3", "pumps5" ), ['name' => $pumps4]);
     }
