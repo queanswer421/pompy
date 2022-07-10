@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Producer;
+use App\Models\Category;
 use App\Models\Heat35;
 use App\Models\Heat45;
 use App\Models\Heat55;
@@ -20,7 +22,7 @@ class PumpController extends Controller
     {
 
 
-
+        
         $pump = Pump::latest()->get();
       
         return view('pump.index',compact('pump'))
@@ -34,7 +36,9 @@ class PumpController extends Controller
      */
     public function create()
     {
-        return view('pump.create');
+        $producers = Producer::all();
+        $categories = Category::all();
+        return view('pump.create', compact('producers', 'categories'));
     }
 
     /**
@@ -45,10 +49,10 @@ class PumpController extends Controller
      */
     public function store(Request $request)
     {
-    
         $request->validate([
-            'producer' => 'required',
+            'producer_id' => 'required',
             'model' => 'required',
+            'power' => 'required',
             'category_id' => 'required',
         ]);
         // $request->input('p35m20') = -1;

@@ -68,7 +68,7 @@
                         @foreach ($standard as $s)
                         <tr>
                         
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->producer}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->producer->name}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->line}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->model}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->temp}}</td>

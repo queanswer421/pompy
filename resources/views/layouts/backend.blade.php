@@ -63,6 +63,15 @@
                                         </a>
                                     </li>
                                     <li class="mb-2">
+                                        <a href="{{ route('producer.index') }}" class="p-3 flex items-center hover:bg-gray-50">
+                                            <i class="fas fa-home text-2xl text-purple-700"></i>
+                                            <div class="ml-4">
+                                                <p class="font-medium">Producenci</p>
+                                                <p class="mt-1 text-sm text-gray-500">Dodaj producenta.</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="mb-2">
                                         <a href="#" class="p-3 flex items-center hover:bg-gray-50">
                                             <i class="fas fa-user text-2xl text-purple-700"></i>
                                             <div class="ml-4">

@@ -86,7 +86,7 @@ class HouseController extends Controller
         // $pumps2 = Pump::where([['category_id', 2],['p35M7','>=',$house->heatDemandM7]])->orderBy('p35M7', 'ASC')->take(1)->get();
         // $pumps3 = Pump::where([['category_id', 3],['p35M7','>=',$house->heatDemandM7]])->orderBy('p35M7', 'ASC')->take(1)->get();
         // $pumps4 = Pump::where([['category_id', 2],['p35M7','<=',$house->heatDemandM7]])->orderBy('p35M7', 'ASC')->take(1)->first();
-        $standard = Pump::where('category_id', 2)->get();
+        $standard = Pump::where('category_id', 1)->get();
 
             for($n=0;$n<$standard->count();$n++){
                 $array35 = [
@@ -99,30 +99,41 @@ class HouseController extends Controller
                     $standard[$n]->heat35->p35p12,
                     $standard[$n]->heat35->p35p20
                 ];
-                for ($i = 0; $i<=7; $i++){
-                    if($i<7){
-                    //    echo "<br><b>".$chart[$i]." => </b>";
-                        for($j = 0;$j<=abs($chart[$i+1]-$chart[$i])-1;$j++){
-                            $heat = ($house->heatDemand/40)*abs($chart[$i]-20-$j);
-                            $pump = $array35[$i] + ($j)*($array35[$i+1] - $array35[$i])/abs($chart[$i+1]-$chart[$i]);
-                    //        echo round($pump, 2).", <font color='red'>".$heat." ";
-  
-                            if ($heat <= $pump){
-                    //                echo "<b>+</b>";
-                                }
-                                else {
-                                    $standard[$n]->temp = $chart[$i]+$j+1;
-                    //                echo "<<".$chart[$i]+$j.">>";   
-                                }
-                    //        echo " , </font>";
-                        }
+                $find = false;
+                
+                if($find == false){
+                    for ($i = 0; $i<=7; $i++){
+                        if($i<7){
+                        //    echo "<br><b>".$chart[$i]." => </b>";
+                            for($j = 0;$j<abs($chart[$i+1]-$chart[$i]);$j++){
+                                $heat = ($house->heatDemand/40)*abs(($chart[$i]+$j)-20);
+                                // echo $chart[$i]+$j ." ".$i." ".$j." ".$heat. "<br>";
+                                // echo " ".$heat. " ";
+                                $pump = $array35[$i] + ($j)*($array35[$i+1] - $array35[$i])/abs($chart[$i+1]-$chart[$i]);
+                                                            //    echo round($pump, 2).", <font color='red'>".$heat." ";
+                                    if ($pump <= $heat){
+                                        echo $chart[$i]+$j;
+                                        echo " <b>".round($pump, 2)."</b> ".round($heat, 2)." ";
+                                        echo "<font color='red'><b>Pompa za słaba</b></font> ";
+                                        echo $find ? 'true' : 'false' . "<br>";       
+                                    }
+                                    else {
+                                        $find = true;
+                                        echo $chart[$i]+$j;
+                                        echo " <b>".round($pump, 2)."</b> ".round($heat, 2)." ";
+                                        echo "<font color='green'><b>Pompa wystarcza</b></font> ";
+                                        echo $find ? 'true' : 'false';
+                                        echo "<br>";
+                                    }
+                                                    // elseif ($find = false){
+                                                    //     $standard[$n]->temp = $chart[$i]+$j+1;
+                            }
+                        }               
                     }
-                    else ;
-                   // echo "<br><b>".$chart[7]." => ".$array35[7]."</b>";
                 }
-            }
 
 
+        }
             // for ($i=20; $i <= 20; $i++) { 
             //     echo $i ." ";
             //     for ($j = 0; $j < $standard->count(); $j++){
