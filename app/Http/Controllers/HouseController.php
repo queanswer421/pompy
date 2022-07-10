@@ -82,10 +82,7 @@ class HouseController extends Controller
             ($house->heatDemand/40)*0
         ];
         
-        // $pumps1 = Pump::where([['category_id', 1],['p35M7','>=',$house->heatDemandM7]])->orderBy('p35M7', 'ASC')->take(1)->get();
-        // $pumps2 = Pump::where([['category_id', 2],['p35M7','>=',$house->heatDemandM7]])->orderBy('p35M7', 'ASC')->take(1)->get();
-        // $pumps3 = Pump::where([['category_id', 3],['p35M7','>=',$house->heatDemandM7]])->orderBy('p35M7', 'ASC')->take(1)->get();
-        // $pumps4 = Pump::where([['category_id', 2],['p35M7','<=',$house->heatDemandM7]])->orderBy('p35M7', 'ASC')->take(1)->first();
+
         $standard = Pump::where('category_id', 1)->get();
 
             for($n=0;$n<$standard->count();$n++){
