@@ -82,10 +82,11 @@ class HouseController extends Controller
             ($house->heatDemand/40)*0
         ];
         
+        $basic = Pump::where('category_id', 3)->get();
+        $standard = Pump::where('category_id', 2)->get();
+        $pro = Pump::where('category_id', 1)->get();
 
-        $standard = Pump::where('category_id', 1)->get();
-
-            for($n=0;$n<$standard->count();$n++){
+/*            for($n=0;$n<$standard->count();$n++){
                 $array35 = [
                     $standard[$n]->heat35->p35m20,
                     $standard[$n]->heat35->p35m15,
@@ -107,12 +108,13 @@ class HouseController extends Controller
                                 // echo $chart[$i]+$j ." ".$i." ".$j." ".$heat. "<br>";
                                 // echo " ".$heat. " ";
                                 $pump = $array35[$i] + ($j)*($array35[$i+1] - $array35[$i])/abs($chart[$i+1]-$chart[$i]);
-                                                            //    echo round($pump, 2).", <font color='red'>".$heat." ";
+                                        //    echo round($pump, 2).", <font color='red'>".$heat." ";
                                     if ($pump <= $heat){
                                         echo $chart[$i]+$j;
                                         echo " <b>".round($pump, 2)."</b> ".round($heat, 2)." ";
                                         echo "<font color='red'><b>Pompa za słaba</b></font> ";
-                                        echo $find ? 'true' : 'false' . "<br>";       
+                                        echo $find ? 'true' : 'false' . "<br>";
+                                        $standard[$n]->tempBiwa = $chart[$i]+$j; 
                                     }
                                     else {
                                         $find = true;
@@ -122,57 +124,68 @@ class HouseController extends Controller
                                         echo $find ? 'true' : 'false';
                                         echo "<br>";
                                     }
-                                                    // elseif ($find = false){
-                                                    //     $standard[$n]->temp = $chart[$i]+$j+1;
                             }
                         }               
                     }
                 }
-
-
         }
-            // for ($i=20; $i <= 20; $i++) { 
-            //     echo $i ." ";
-            //     for ($j = 0; $j < $standard->count(); $j++){
-            //         echo $standard[$j]->producer." ".$standard[$j]->model."<br>";
-            //         $standard[$j]->temp = $j + 100;
-            //     }
-            //     // $heat = ($house->heatDemand/40)*abs($i-20);
-            //     // $pump = $standard[0]->heat35->p35m15 + (($i+15)*(($standard[0]->heat35->p35m7 - $standard[0]->heat35->p35m15)/($chart[2]-$chart[1])));
-            //     // if ($heat >= $pump){
-            //     // echo ($house->heatDemand/40)*abs($i-20) ." ".$pump. "<br>";
-            //     // }
-            //     // else {
-            //     //     echo "<b>". $i ." ". ($house->heatDemand/40)*abs($i-20) ." ".$pump. "<b><br>";
-            //     //     break;
-            //     // }
-            // }
-            //     echo "<b>".$standard[2]->temp."<b>";
+*/
+        $basic = $this->pumps($basic, $house);
+        $basic = $basic->sortByDesc('tempBiwa')->values()->all();
+        $standard = $this->pumps($standard, $house);
+        $standard = $standard->sortByDesc('tempBiwa')->values()->all();
+        $pro = $this->pumps($pro, $house);
+        $pro = $pro->sortByDesc('tempBiwa')->values()->all();
 
-        // for ($i=-7; $i <= 2; $i++) { 
-        //     $heat = ($house->heatDemand/40)*abs($i-20);
-        //     $pump = $standard[0]->p35m7 + (($i+7)*(($standard[0]->p35p2 - $standard[0]->p35m7)/9));
-        //     if ($heat >= $pump){
-        //     echo  $i ." ". ($house->heatDemand/40)*abs($i-20) ." ".$pump. "<br>";
-        //     }
-        //     else {
-        //         echo "<b>". $i ." ". ($house->heatDemand/40)*abs($i-20) ." ".$pump. "<b><br>";
-        //     }
-        // }
-
-        // $pumps7 = Pump::first();
-        // dd($house);
-        // dd($standard);
-        // foreach($chart as $i => $cha){
-        //     if ($chartHouse[$i] > 3)
-        //     $chartHouse[$i] = 9;            
-        // }
-        // dd($house);
-        // dd($standard);
-        $standard = $standard->sortByDesc('temp')->values()->all();
-
-        return view('house.show', compact('house',"standard", 'chartHouse'));
-        // return view('house.show', compact("pumps1", "pumps2", "pumps3", "pumps5" ), ['name' => $pumps4]);
+        return view('house.show', compact('house','basic', 'standard','pro', 'chartHouse'));
+    }
+    public function pumps($pumps, $house){
+        $chart = [-20, -15, -7, 2, 7, 10, 12, 20];
+        $h = 'heat'.$house->temp;
+        for($n=0;$n<$pumps->count();$n++){
+            $array35 = [
+                $pumps[$n]->$h->p35m20,
+                $pumps[$n]->$h->p35m15,
+                $pumps[$n]->$h->p35m7,
+                $pumps[$n]->$h->p35p2,
+                $pumps[$n]->$h->p35p7,
+                $pumps[$n]->$h->p35p10,
+                $pumps[$n]->$h->p35p12,
+                $pumps[$n]->$h->p35p20
+            ];
+            $find = false;
+            
+            if($find == false){
+                for ($i = 0; $i<=7; $i++){
+                    if($i<7){
+                    //    echo "<br><b>".$chart[$i]." => </b>";
+                        for($j = 0;$j<abs($chart[$i+1]-$chart[$i]);$j++){
+                            $heat = ($house->heatDemand/40)*abs(($chart[$i]+$j)-20);
+                            // echo $chart[$i]+$j ." ".$i." ".$j." ".$heat. "<br>";
+                            // echo " ".$heat. " ";
+                            $pump = $array35[$i] + ($j)*($array35[$i+1] - $array35[$i])/abs($chart[$i+1]-$chart[$i]);
+                                    //    echo round($pump, 2).", <font color='red'>".$heat." ";
+                                if ($pump <= $heat){
+                                    // echo $chart[$i]+$j;
+                                    // echo " <b>".round($pump, 2)."</b> ".round($heat, 2)." ";
+                                    // echo "<font color='red'><b>Pompa za słaba</b></font> ";
+                                    // echo $find ? 'true' : 'false' . "<br>";
+                                    $pumps[$n]->tempBiwa = $chart[$i]+$j; 
+                                }
+                                else {
+                                    $find = true;
+                                    // echo $chart[$i]+$j;
+                                    // echo " <b>".round($pump, 2)."</b> ".round($heat, 2)." ";
+                                    // echo "<font color='green'><b>Pompa wystarcza</b></font> ";
+                                    // echo $find ? 'true' : 'false';
+                                    // echo "<br>";
+                                }
+                        }
+                    }               
+                }
+            }
+        }
+        return $pumps;
     }
 
     /**
