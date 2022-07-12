@@ -64,14 +64,54 @@
 
                     </tr>
                     <tbody class="bg-white">
-                        pompy standardowe
+                        pompy basic
+                        @foreach ($basic as $b)
+                        <tr>
+                        
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->producer->name}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->line}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->model}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->tempBiwa}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->heat35->p35m7}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->volume}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->price}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">***</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">***</td>
+                        
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="m-4 mb-8">
+    <div class="flex flex-col mt-10">
+        <div class="flex flex-col">
+            <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
+                <table class="min-w-full">
+                    <tr>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Producent</th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Linia</th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Model</th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">temp</th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">moc -7</th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">głśność u źródła</th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">cena</th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">***</th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">***</th>
+
+                    </tr>
+                    <tbody class="bg-white">
+                        pompy standard
                         @foreach ($standard as $s)
                         <tr>
                         
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->producer->name}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->line}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->model}}</td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->temp}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->tempBiwa}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->heat35->p35m7}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->volume}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->price}}</td>
@@ -92,6 +132,46 @@
             <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
                 <table class="min-w-full">
                     <tr>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Producent</th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Linia</th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Model</th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">temp</th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">moc -7</th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">głśność u źródła</th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">cena</th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">***</th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">***</th>
+
+                    </tr>
+                    <tbody class="bg-white">
+                        pompy pro
+                        @foreach ($pro as $p)
+                        <tr>
+                        
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $p->producer->name}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $p->line}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $p->model}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $p->tempBiwa}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $p->heat35->p35m7}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $p->volume}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $p->price}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">***</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">***</td>
+                        
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- <div class="m-4 mb-8">
+    <div class="flex flex-col mt-10">
+        <div class="flex flex-col">
+            <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
+                <table class="min-w-full">
+                    <tr>
                         <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">temp</th>
                         <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">-20</th>
                         <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">-15</th>
@@ -104,7 +184,7 @@
 
                     </tr>
                     <tbody class="bg-white">
-                        pompy pro
+                        temperatura
                         @foreach ($standard as $s)
                         <tr>
                         
@@ -125,5 +205,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection
