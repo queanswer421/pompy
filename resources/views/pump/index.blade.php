@@ -43,7 +43,7 @@
                             <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50" width="180px">--</th>
                         </tr>
                         <tbody class="bg-white">
-                            @foreach ($pump as $pump)
+                            @foreach ($pumps as $pump)
                             <tr>
                                 <td class="px-6 whitespace-no-wrap border-b border-gray-200">{{ ++$i }}</td>
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $pump->producer->name }}</td>

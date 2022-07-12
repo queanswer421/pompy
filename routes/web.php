@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PumpController;
 use App\Http\Controllers\HouseController;
 use App\Http\Controllers\ProducerController;
+use App\Http\Controllers\PriceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,8 @@ Route::resource('/producer', ProducerController::class);
 Route::get('/', function () {
     return view('home');
 })->name('home');
-Route::get('/price', function () {
-    return view('price');
-})->name('price');
+
+Route::get('/houseprice', function () {
+    return view('houseprice');
+})->name('houseprice');
+Route::post('/price', [PriceController::class, 'show'])->name('price.show');
