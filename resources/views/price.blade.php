@@ -53,30 +53,46 @@
                     <span class="absolute -top-6 left-1/2 transform -translate-x-1/2 tracking-wider bg-purple-900 text-white rounded-full px-4 py-2">Standard</span>
                     {{-- <h4 class="font-architect text-3xl text-purple-900">Standard</h4> --}}
                     <img src="https://wallbox.pl/img/imagecache/1001-2000/6ef1536475a6f8dee1fd0fe5941de622449a7794.jpg" class="w-full" alt="">
-                    <p class="text-base mt-4">
+
+                    <div class="text-6xl font-bold py-8 border-b border-gray-300 text-purple-800 flex-grow">Producent
+                        <span class="text-3xl font-normal">model</span>
+                    </div>
+
+                    <ul class="my-6 space-y-5 flex-grow">
+                        <li class="flex justify-between items-center">
+                        <div flex items-center>
+                            <img src="{{ asset('assets/icons/checkmark.svg')}}" alt="checkmark">
+                            <span class="ml-3 text-base break-words">temp biwa</span>
+                        </div>
+                        <span flex items-end>temperatura biwa</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                        <div flex items-center>
+                            <img src="{{ asset('assets/icons/checkmark.svg')}}" alt="checkmark">
+                            <span class="ml-3 text-base break-words">moc (-7)</span>
+                            </div>
+                            <span flex items-end>temp</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                        <div flex items-center>
+                            <img src="{{ asset('assets/icons/checkmark.svg')}}" alt="checkmark">
+                            <span class="ml-3 text-base break-words">głośność u źródła</span>
+                        </div>
+                        <span flex items-end>głosność</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <div flex items-center>
+                                <img src="{{ asset('assets/icons/checkmark.svg')}}" alt="checkmark">
+                                <span class="ml-3 text-base break-words">cena</span>
+                            </div>
+                            <span flex items-end> zł</span>
+                        </li>
+
+                    </ul>
+                    <p class="text-base my-2">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo incidunt nostrum vitae dolorem eius voluptas cum ad voluptatibus nesciunt, adipisci deleniti asperiores delectus architecto amet nobis ab enim! Architecto, distinctio.
                     </p>
-                    <div class="text-6xl font-bold py-8 border-b border-gray-300 text-purple-800 flex-grow">79 000 zł
-                        <span class="text-3xl font-normal"></span>
-                    </div>
-                    <ul class="my-6 space-y-5 flex-grow">
-                        <li class="flex items-center">
-                            <img src="{{ asset('assets/icons/checkmark.svg')}}" alt="checkmark">
-                            <span class="ml-3 text-base break-words">p1</span>
-                        </li>
-                        <li class="flex items-center">
-                            <img src="{{ asset('assets/icons/checkmark.svg')}}" alt="checkmark">
-                            <span class="ml-3 text-base break-words">p2</span>
-                        </li>
-                        <li class="flex items-center">
-                            <img src="{{ asset('assets/icons/checkmark.svg')}}" alt="checkmark">
-                            <span class="ml-3 text-base break-words">p3</span>
-                        </li>
-                        <li class="flex items-center">
-                            <img src="{{ asset('assets/icons/checkmark.svg')}}" alt="checkmark">
-                            <span class="ml-3 text-base break-words">p4</span>
-                        </li>
-                    </ul>
+
                     <a href="#"
                         class="px-6 py-4 rounded-sm shadow-lg font-medium border border-purple-900 bg-purple-900 text-white hover:bg-white hover:text-purple-900">
                         Zatwierdz</a>
@@ -118,4 +134,6 @@
             <img src="assets/Vector3.png" alt="lines" class="hidden md:block h-full absolute md:top-0 xl:-bottom-10 2xl:-left-32">
         </div>
     </section>
+<!-- section test -->
+
 @endsection

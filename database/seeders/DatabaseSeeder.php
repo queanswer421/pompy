@@ -3,8 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Category;
-use App\Models\Producer;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,34 +13,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call([
+            CategorySeeder::class,
+            ProducerSeeder::class,
+            PumpSeeder::class,
+        ]);
         // \App\Models\User::factory(10)->create();
-        Category::create([
-            "id" => 1,
-            "name" => "Pro"   
-        ]);
-        Category::create([
-            "id" => 2,
-            "name" => "Standard"   
-        ]);
-        Category::create([
-            "id" => 3,
-            "name" => "Basic"   
-        ]);
-        // Producer::create([
-        //     "id" => 1,
-        //     "name" => "UNKNOWN"   
-        // ]);
-        Producer::create([
-            "id" => 1,
-            "name" => "Dimplex"   
-        ]);
-        Producer::create([
-            "id" => 2,
-            "name" => "Hyunday"   
-        ]);
-        Producer::create([
-            "id" => 3,
-            "name" => "Buderus"   
-        ]);
+
+
     }
 }

@@ -31,6 +31,7 @@ return new class extends Migration
                 ->onDelete('cascade');
             $table->double('volume')->nullable()->default(0);
             $table->integer('price')->nullable()->default(0);
+            $table->integer('biwa')->nullable()->default(-50);
             $table->timestamps();
         });
     }

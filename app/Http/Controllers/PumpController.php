@@ -23,9 +23,9 @@ class PumpController extends Controller
 
 
         
-        $pump = Pump::latest()->get();
-      
-        return view('pump.index',compact('pump'))
+        $pumps = Pump::latest()->get();
+
+        return view('pump.index',compact('pumps'))
                 ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -91,9 +91,7 @@ class PumpController extends Controller
         $heat55->save();
         // $heat35 = Heat35::create($request->all());
         // $heat35->pump()->save($heat35);
-        // $pump->heat35()->save($pump);
-
-       
+        // $pump->heat35()->save($pump);    
         return redirect()->route('pump.index')
                         ->with('success','Pompa ciepła została dodana.');
     }

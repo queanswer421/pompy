@@ -132,8 +132,23 @@ class HouseController extends Controller
 */
         $basic = $this->pumps($basic, $house);
         $basic = $basic->sortByDesc('tempBiwa')->values()->all();
+
+        
         $standard = $this->pumps($standard, $house);
+        for ($i=0; $i<$standard->count();$i++){
+            $temp = 0;
+            // echo "<br>".$standard[$i]->tempBiwa." " .abs(-7-$standard[$i]->tempBiwa);
+            // $temp = $standard[0]->tempBiwa;
+
+            if (abs(-7-$standard[$i]->tempBiwa) <= abs(-7-$standard[$temp]->tempBiwa)){
+                $temp = $i;
+            }
+            
+        }
+
+        $standard[$temp]->offer = "Polecana!";
         $standard = $standard->sortByDesc('tempBiwa')->values()->all();
+
         $pro = $this->pumps($pro, $house);
         $pro = $pro->sortByDesc('tempBiwa')->values()->all();
 
@@ -156,8 +171,9 @@ class HouseController extends Controller
             $find = false;
             
             if($find == false){
-                for ($i = 0; $i<=7; $i++){
-                    if($i<7){
+                //skracam do +7
+                for ($i = 0; $i<=4; $i++){
+                    if($i<4){
                     //    echo "<br><b>".$chart[$i]." => </b>";
                         for($j = 0;$j<abs($chart[$i+1]-$chart[$i]);$j++){
                             $heat = ($house->heatDemand/40)*abs(($chart[$i]+$j)-20);

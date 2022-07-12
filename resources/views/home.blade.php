@@ -16,7 +16,7 @@
 
             <div class="my-5 sm:mt-20 sm:flex sm:justify-center w-full">
                 <div>
-                    <a href="{{ route('price') }}" class="w-full inline-flex justify-center px-8 py-3 md:px-10 text-base md:text-lg rounded text-white bg-purple-900 hover:bg-gray-900 focus:outline-none">Dobór pompy ciepła</a>
+                    <a href="{{ route('houseprice') }}" class="w-full inline-flex justify-center px-8 py-3 md:px-10 text-base md:text-lg rounded text-white bg-purple-900 hover:bg-gray-900 focus:outline-none">Dobór pompy ciepła</a>
                 </div>
                 <div class="mt-3 sm:mt-0 sm:ml-3">
                     <a href="#" class="w-full inline-flex justify-center px-8 py-3 md:px-10 text-base md:text-lg rounded text-purple-900 bg-purple-300 hover:bg-indigo-200 focus:outline-none">Dowiedz się więcej</a>
