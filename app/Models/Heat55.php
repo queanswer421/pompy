@@ -9,7 +9,7 @@ class Heat55 extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'p55m20','p55m15','p55m7','p55p2','p55p7','p55p10','p55p12','p55p20'
+        'pump_id', 'm20','m15','m7','p2','p7','p10','p12','p20'
    ];
 
    public function pump()

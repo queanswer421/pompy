@@ -20,21 +20,21 @@ class CreateHeat35sTable extends Migration
                 ->references('id')
                 ->on('pumps')
                 ->onDelete('cascade');
-            $table->double('p35m20')->nullable()->default(0);
+            $table->double('m20')->nullable()->default(0);
 
-            $table->double('p35m15')->nullable()->default(0);
+            $table->double('m15')->nullable()->default(0);
 
-            $table->double('p35m7')->nullable()->default(0);
+            $table->double('m7')->nullable()->default(0);
 
-            $table->double('p35p2')->nullable()->default(0);
+            $table->double('p2')->nullable()->default(0);
 
-            $table->double('p35p7')->nullable()->default(0);
+            $table->double('p7')->nullable()->default(0);
 
-            $table->double('p35p10')->nullable()->default(0);
+            $table->double('p10')->nullable()->default(0);
 
-            $table->double('p35p12')->nullable()->default(0);
+            $table->double('p12')->nullable()->default(0);
 
-            $table->double('p35p20')->nullable()->default(0);
+            $table->double('p20')->nullable()->default(0);
 
             $table->timestamps();
         });

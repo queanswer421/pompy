@@ -27,10 +27,25 @@ class PriceController extends Controller
         $house['heatDemandM15'] = ($house['heatDemand']/40)*35+$house['cwu'];
         $house['heatDemandM7'] = ($house['heatDemand']/40)*27+$house['cwu'];
         $house['heatDemandP2'] = ($house['heatDemand']/40)*18+$house['cwu'];
+        $house['heatDemand'] = $house['surface']*$house['type']/1000+$house['cwu'];
 
-        $standardowe = Pump::all();
+        $pumps = Pump::all();
+        for($n=0;$n<$pumps->count();$n++){
+            echo $pumps[$n]->model."<br>";
+            $array = [
+                $pumps[$n]->heat35->m20,
+                $pumps[$n]->heat35->m15,
+                $pumps[$n]->heat35->m7,
+                $pumps[$n]->heat35->p2,
+                $pumps[$n]->heat35->p7,
+                $pumps[$n]->heat35->p10,
+                $pumps[$n]->heat35->p12,
+                $pumps[$n]->heat35->p20
+            ];
+            echo $array[2]."<br>";
+        }
         // dd($standard[0]->tempbiwa);
-        $standard = $this->pumps($standardowe, $house);
+        // $standard = $this->pumps($standardowe, $house);
 
         // $standard = $this->temp($standardowe);
 
@@ -39,7 +54,7 @@ class PriceController extends Controller
         // $standard = $standard->sortByDesc('tempBiwa')->values()->all();
 
         // $standard = Pump::take(1)->first();
-        return view('price');
+        return view('price', compact('house', 'pumps'));
         // , compact('standard', 'house'));
     }
     // public function temp($standard2){

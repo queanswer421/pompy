@@ -21,21 +21,21 @@ class CreateHeat55sTable extends Migration
                 ->on('pumps')
                 ->onDelete('cascade');
          
-            $table->double('p55m20')->nullable()->default(0);
+            $table->double('m20')->nullable()->default(0);
 
-            $table->double('p55m15')->nullable()->default(0);
+            $table->double('m15')->nullable()->default(0);
 
-            $table->double('p55m7')->nullable()->default(0);
+            $table->double('m7')->nullable()->default(0);
 
-            $table->double('p55p2')->nullable()->default(0);
+            $table->double('p2')->nullable()->default(0);
 
-            $table->double('p55p7')->nullable()->default(0);
+            $table->double('p7')->nullable()->default(0);
 
-            $table->double('p55p10')->nullable()->default(0);
+            $table->double('p10')->nullable()->default(0);
 
-            $table->double('p55p12')->nullable()->default(0);
+            $table->double('p12')->nullable()->default(0);
 
-            $table->double('p55p20')->nullable()->default(0);
+            $table->double('p20')->nullable()->default(0);
             $table->timestamps();
         });
     }

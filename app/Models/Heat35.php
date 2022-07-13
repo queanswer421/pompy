@@ -10,7 +10,7 @@ class Heat35 extends Model
     use HasFactory;
 
     protected $fillable = [
-         'pump_id', 'p35m20','p35m15','p35m7','p35p2','p35p7','p35p10','p35p12','p35p20'
+         'pump_id', 'm20','m15','m7','p2','p7','p10','p12','p20'
     ];
     // protected $table = 'heat35';
 

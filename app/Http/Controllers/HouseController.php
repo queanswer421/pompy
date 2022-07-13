@@ -53,6 +53,7 @@ class HouseController extends Controller
         $data['heatDemandM15'] = ($data['heatDemand']/40)*35+$data['cwu'];
         $data['heatDemandM7'] = ($data['heatDemand']/40)*27+$data['cwu'];
         $data['heatDemandP2'] = ($data['heatDemand']/40)*18+$data['cwu'];
+        $data['heatDemand'] = $data['surface']*$data['type']/1000 + $data['cwu'];
         House::create($data);
         
         // $request->surface*$request->type/1000;

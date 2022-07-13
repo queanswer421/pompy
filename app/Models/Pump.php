@@ -11,11 +11,9 @@ class Pump extends Model
     use HasFactory;
 
     protected $fillable = [
-        'producer_id', 'line', 'model','power', 'category_id', 'type', 'heat35_id', 'volume', 'price'
+        'producer_id', 'line', 'model', 'category_id', 'type',
+        'heat35_id', 'heat45_id', 'heat55_id', 'volume', 'price'
     ];
-        //  'p35m20','p35m15','p35m7','p35p2','p35p7','p35p10','p35p12','p35p20',
-        //  'p45m20','p45m15','p45m7','p45p2','p45p7','p45p10','p45p12','p45p20',
-        //  'p55m20','p55m15','p55m7','p55p2','p55p7','p55p10','p55p12','p55p20',
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
