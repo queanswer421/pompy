@@ -23,26 +23,26 @@ class PriceController extends Controller
             'cwu' => $request->input('cwu')
         ]);
         $house['cwu'] = $house['cwu']*0.25;
-        $house['heatDemand'] = $house['surface']*$house['type']/1000;
-        $house['heatDemandM15'] = ($house['heatDemand']/40)*35+$house['cwu'];
-        $house['heatDemandM7'] = ($house['heatDemand']/40)*27+$house['cwu'];
-        $house['heatDemandP2'] = ($house['heatDemand']/40)*18+$house['cwu'];
         $house['heatDemand'] = $house['surface']*$house['type']/1000+$house['cwu'];
+        $house['heatDemandM15'] = ($house['heatDemand']/40)*35;
+        $house['heatDemandM7'] = ($house['heatDemand']/40)*27;
+        $house['heatDemandP2'] = ($house['heatDemand']/40)*18;
+        // $house['heatDemand'] = $house['surface']*$house['type']/1000+$house['cwu'];
 
-        $pumps = Pump::all();
-        for($n=0;$n<$pumps->count();$n++){
-            echo $pumps[$n]->model."<br>";
+        $standard = Pump::all();
+        for($n=0;$n<$standard->count();$n++){
+            // echo $pumps[$n]->model."<br>";
             $array = [
-                $pumps[$n]->heat35->m20,
-                $pumps[$n]->heat35->m15,
-                $pumps[$n]->heat35->m7,
-                $pumps[$n]->heat35->p2,
-                $pumps[$n]->heat35->p7,
-                $pumps[$n]->heat35->p10,
-                $pumps[$n]->heat35->p12,
-                $pumps[$n]->heat35->p20
+                $standard[$n]->heat35->m20,
+                $standard[$n]->heat35->m15,
+                $standard[$n]->heat35->m7,
+                $standard[$n]->heat35->p2,
+                $standard[$n]->heat35->p7,
+                $standard[$n]->heat35->p10,
+                $standard[$n]->heat35->p12,
+                $standard[$n]->heat35->p20
             ];
-            echo $array[2]."<br>";
+            // echo $array[2]."<br>";
         }
         // dd($standard[0]->tempbiwa);
         // $standard = $this->pumps($standardowe, $house);
@@ -54,7 +54,8 @@ class PriceController extends Controller
         // $standard = $standard->sortByDesc('tempBiwa')->values()->all();
 
         // $standard = Pump::take(1)->first();
-        return view('price', compact('house', 'pumps'));
+        $offer = 0;
+        return view('price', compact('house', 'standard', 'offer'));
         // , compact('standard', 'house'));
     }
     // public function temp($standard2){

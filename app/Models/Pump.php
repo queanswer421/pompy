@@ -20,7 +20,7 @@ class Pump extends Model
     }
     public function producer()
     {
-        return $this->belongsTo(Producer::class);
+        return $this->belongsTo(Producer::class, 'producer_id');
     }
     public function heat35()
     {
