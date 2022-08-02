@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('pumps', function(){
-    $house = \App\Models\House::where('id',4)->first();
+    $house = \App\Models\House::first();
     $chart = [-20, -15, -7, 2, 7, 10, 12, 20];
     $chartHouse = [
         $house->heatDemand,
