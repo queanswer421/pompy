@@ -41,11 +41,13 @@ Route::get('pumps', function(){
         
         if($find == false){
             //skracam do +7
+            //czyli 4 pomiary
             for ($i = 0; $i<=4; $i++){
                 if($i<4){
                     for($j = 0;$j<abs($chart[$i+1]-$chart[$i]);$j++){
                         $heat = ($house->heatDemand/40)*abs(($chart[$i]+$j)-20);
                         $pump = $array[$i] + ($j)*($array[$i+1] - $array[$i])/abs($chart[$i+1]-$chart[$i]);
+ 
                             if ($pump <= $heat){
                                 $pumps[$n]->tempBiwa = $chart[$i]+$j; 
                             }
