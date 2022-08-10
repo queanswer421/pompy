@@ -72,7 +72,7 @@
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->line}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->model}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->tempBiwa}}</td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->heat35->p35m7}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->heat35->m7}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->volume}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->price}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">***</td>
@@ -112,7 +112,7 @@
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->line}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->model}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->tempBiwa}}</td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->heat35->p35m7}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->heat35->m7}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->volume}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->price}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{$s->offer}}</td>
@@ -152,7 +152,7 @@
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $p->line}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $p->model}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $p->tempBiwa}}</td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $p->heat35->p35m7}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $p->heat35->m7}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $p->volume}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $p->price}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">***</td>
