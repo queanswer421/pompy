@@ -61,8 +61,6 @@ class PriceController extends Controller
         $standard = $this->pumps($standard, $house);
         for ($i=0; $i<$standard->count();$i++){
             $temp = 0;
-            // echo "<br>".$standard[$i]->tempBiwa." " .abs(-7-$standard[$i]->tempBiwa);
-            // $temp = $standard[0]->tempBiwa;
 
             if ($standard[$i]->tempBiwa != -50){
                 if (abs(-7-$standard[$i]->tempBiwa) <= abs(-7-$standard[$temp]->tempBiwa)){
@@ -72,10 +70,35 @@ class PriceController extends Controller
             
         }
         $standard = $standard->sortByDesc('tempBiwa')->values()->all();
-
         $standardOffer = $temp;
-        $basicOffer = 0;
-        $proOffer = 0;
+
+        $basic = $this->pumps($basic, $house);
+        for ($i=0; $i<$basic->count();$i++){
+            $temp = 0;
+
+            if ($basic[$i]->tempBiwa != -50){
+                if (abs(-7-$basic[$i]->tempBiwa) <= abs(-7-$basic[$temp]->tempBiwa)){
+                    $temp = $i;
+                }
+            }  
+            
+        }
+        $basic = $basic->sortByDesc('tempBiwa')->values()->all();
+        $basicOffer = $temp;
+
+        $pro = $this->pumps($pro, $house);
+        for ($i=0; $i<$pro->count();$i++){
+            $temp = 0;
+
+            if ($pro[$i]->tempBiwa != -50){
+                if (abs(-7-$pro[$i]->tempBiwa) <= abs(-7-$pro[$temp]->tempBiwa)){
+                    $temp = $i;
+                }
+            }  
+            
+        }
+        $pro = $pro->sortByDesc('tempBiwa')->values()->all();
+        $proOffer = $temp;
         return view('price', compact('house', 'basic', 'pro', 'standard', 'standardOffer', 'basicOffer', 'proOffer'));
     }
 

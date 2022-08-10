@@ -90,9 +90,17 @@ class HouseController extends Controller
         $pro = Pump::where('category_id', 1)->get();
 
         $basic = $this->pumps($basic, $house);
+        for ($i=0; $i<$basic->count();$i++){
+            $temp = 0;
+            if ($basic[$i]->tempBiwa != -50){
+                if (abs(-7-$basic[$i]->tempBiwa) <= abs(-7-$basic[$temp]->tempBiwa)){
+                    $temp = $i;
+                }
+            }  
+        }
+        $basic[$temp]->offer = "Polecana!";
         $basic = $basic->sortByDesc('tempBiwa')->values()->all();
 
-        
         $standard = $this->pumps($standard, $house);
         for ($i=0; $i<$standard->count();$i++){
             $temp = 0;
@@ -106,6 +114,15 @@ class HouseController extends Controller
         $standard = $standard->sortByDesc('tempBiwa')->values()->all();
 
         $pro = $this->pumps($pro, $house);
+        for ($i=0; $i<$pro->count();$i++){
+            $temp = 0;
+            if ($pro[$i]->tempBiwa != -50){
+                if (abs(-7-$pro[$i]->tempBiwa) <= abs(-7-$pro[$temp]->tempBiwa)){
+                    $temp = $i;
+                }
+            }  
+        }
+        $pro[$temp]->offer = "Polecana!";
         $pro = $pro->sortByDesc('tempBiwa')->values()->all();
 
         return view('house.show', compact('house','basic', 'standard','pro', 'chartHouse', 'temp'));
