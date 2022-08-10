@@ -49,14 +49,14 @@ class HouseController extends Controller
 
         $data = $request->all();
         $data['cwu'] = $data['cwu']*0.25;
-        $data['heatDemand'] = $data['surface']*$data['type']/1000+$data['cwu'];
-        $data['heatDemandM15'] = ($data['heatDemand']/40)*35;
-        $data['heatDemandM7'] = ($data['heatDemand']/40)*27;
-        $data['heatDemandP2'] = ($data['heatDemand']/40)*18;
-        // $data['heatDemandM15'] = ($data['heatDemand']/40)*35+$data['cwu'];
-        // $data['heatDemandM7'] = ($data['heatDemand']/40)*27+$data['cwu'];
-        // $data['heatDemandP2'] = ($data['heatDemand']/40)*18+$data['cwu'];
-        // $data['heatDemand'] = $data['surface']*$data['type']/1000 + $data['cwu'];
+        $data['heatDemand'] = $data['surface']*$data['type']/1000;
+        //$data['heatDemandM15'] = ($data['heatDemand']/40)*35+$data['cwu'];
+        //$data['heatDemandM7'] = ($data['heatDemand']/40)*27;
+        //$data['heatDemandP2'] = ($data['heatDemand']/40)*18;
+         $data['heatDemandM15'] = ($data['heatDemand']/40)*35+$data['cwu'];
+         $data['heatDemandM7'] = ($data['heatDemand']/40)*27+$data['cwu'];
+         $data['heatDemandP2'] = ($data['heatDemand']/40)*18+$data['cwu'];
+         $data['heatDemand'] = $data['surface']*$data['type']/1000 + $data['cwu'];
         House::create($data);
         
         // $request->surface*$request->type/1000;
@@ -92,12 +92,13 @@ class HouseController extends Controller
         $basic = $this->pumps($basic, $house);
         for ($i=0; $i<$basic->count();$i++){
             $temp = 0;
-            if ($basic[$i]->tempBiwa != -50){
-                if (abs(-7-$basic[$i]->tempBiwa) <= abs(-7-$basic[$temp]->tempBiwa)){
-                    $temp = $i;
+//            if ($basic[$i]->tempBiwa != -50){
+                if ((-7-$basic[$i]->tempBiwa) <= (-7-$basic[$temp]->tempBiwa)){
+                    $temp = 3;
                 }
-            }  
+//            }  
         }
+	dd($temp);
         $basic[$temp]->offer = "Polecana!";
         $basic = $basic->sortByDesc('tempBiwa')->values()->all();
 

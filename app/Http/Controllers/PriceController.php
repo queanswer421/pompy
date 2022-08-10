@@ -23,11 +23,11 @@ class PriceController extends Controller
             'cwu' => $request->input('cwu')
         ]);
         $house['cwu'] = $house['cwu']*0.25;
+        $house['heatDemand'] = $house['surface']*$house['type']/1000;
+        $house['heatDemandM15'] = ($house['heatDemand']/40)*35+$house['cwu'];
+        $house['heatDemandM7'] = ($house['heatDemand']/40)*27+$house['cwu'];
+        $house['heatDemandP2'] = ($house['heatDemand']/40)*18+$house['cwu'];
         $house['heatDemand'] = $house['surface']*$house['type']/1000+$house['cwu'];
-        $house['heatDemandM15'] = ($house['heatDemand']/40)*35;
-        $house['heatDemandM7'] = ($house['heatDemand']/40)*27;
-        $house['heatDemandP2'] = ($house['heatDemand']/40)*18;
-        // $house['heatDemand'] = $house['surface']*$house['type']/1000+$house['cwu'];
 
         $standard = Pump::where('category_id',2)->get();
         $basic = Pump::where('category_id', 3)->get();
@@ -59,16 +59,22 @@ class PriceController extends Controller
             // dd($house);
         // $standard = Pump::take(1)->first();
         $standard = $this->pumps($standard, $house);
+
         for ($i=0; $i<$standard->count();$i++){
             $temp = 0;
 
-            if ($standard[$i]->tempBiwa != -50){
-                if (abs(-7-$standard[$i]->tempBiwa) <= abs(-7-$standard[$temp]->tempBiwa)){
+//            if ($standard[$i]->tempBiwa != -50){
+		$standard[$i]->tempBiwa = abs(-7-($standard[$i]->tempBiwa));
+//                if ((abs(-7-($standard[$i]->tempBiwa))) <= (abs(-7-($standard[$temp]->tempBiwa)))){
+		if ($standard[$i]->tempBiwa >= $standard[$temp]->tempBiwa){
+//		if ($standard[$i]->wynikBiwa >= $standard[$temp]->wynikBiwa){
                     $temp = $i;
+//		    $wynikwartosci = abs(-7-($standard[$i]->tempBiwa));
                 }
-            }  
+//            }  
             
         }
+//	dd($standard);
         $standard = $standard->sortByDesc('tempBiwa')->values()->all();
         $standardOffer = $temp;
 
@@ -77,6 +83,7 @@ class PriceController extends Controller
             $temp = 0;
 
             if ($basic[$i]->tempBiwa != -50){
+
                 if (abs(-7-$basic[$i]->tempBiwa) <= abs(-7-$basic[$temp]->tempBiwa)){
                     $temp = $i;
                 }
@@ -127,7 +134,8 @@ class PriceController extends Controller
                             $heat = ($house->heatDemand/40)*abs(($chart[$i]+$j)-20);
                             $pump = $array35[$i] + ($j)*($array35[$i+1] - $array35[$i])/abs($chart[$i+1]-$chart[$i]);
                                 if ($pump <= $heat){
-                                    $pumps[$n]->tempBiwa = $chart[$i]+$j; 
+                                    $pumps[$n]->tempBiwa = $chart[$i]+$j;
+				    //$pumps[$n]->wynikBiwa = (abs(-7-$pumps[$n]->tempBiwa)); 
                                 }
                                 else {
                                     $find = true;
