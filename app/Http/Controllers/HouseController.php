@@ -49,10 +49,14 @@ class HouseController extends Controller
 
         $data = $request->all();
         $data['cwu'] = $data['cwu']*0.25;
-        $data['heatDemand'] = $data['surface']*$data['type']/1000;
-        $data['heatDemandM15'] = ($data['heatDemand']/40)*35+$data['cwu'];
-        $data['heatDemandM7'] = ($data['heatDemand']/40)*27+$data['cwu'];
-        $data['heatDemandP2'] = ($data['heatDemand']/40)*18+$data['cwu'];
+        $data['heatDemand'] = $data['surface']*$data['type']/1000+$data['cwu'];
+        $data['heatDemandM15'] = ($data['heatDemand']/40)*35;
+        $data['heatDemandM7'] = ($data['heatDemand']/40)*27;
+        $data['heatDemandP2'] = ($data['heatDemand']/40)*18;
+        // $data['heatDemandM15'] = ($data['heatDemand']/40)*35+$data['cwu'];
+        // $data['heatDemandM7'] = ($data['heatDemand']/40)*27+$data['cwu'];
+        // $data['heatDemandP2'] = ($data['heatDemand']/40)*18+$data['cwu'];
+        // $data['heatDemand'] = $data['surface']*$data['type']/1000 + $data['cwu'];
         House::create($data);
         
         // $request->surface*$request->type/1000;
@@ -152,21 +156,21 @@ class HouseController extends Controller
         $pro = $this->pumps($pro, $house);
         $pro = $pro->sortByDesc('tempBiwa')->values()->all();
 
-        return view('house.show', compact('house','basic', 'standard','pro', 'chartHouse'));
+        return view('house.show', compact('house','basic', 'standard','pro', 'chartHouse', 'temp'));
     }
     public function pumps($pumps, $house){
         $chart = [-20, -15, -7, 2, 7, 10, 12, 20];
         $h = 'heat'.$house->temp;
         for($n=0;$n<$pumps->count();$n++){
             $array35 = [
-                $pumps[$n]->$h->p35m20,
-                $pumps[$n]->$h->p35m15,
-                $pumps[$n]->$h->p35m7,
-                $pumps[$n]->$h->p35p2,
-                $pumps[$n]->$h->p35p7,
-                $pumps[$n]->$h->p35p10,
-                $pumps[$n]->$h->p35p12,
-                $pumps[$n]->$h->p35p20
+                $pumps[$n]->$h->m20,
+                $pumps[$n]->$h->m15,
+                $pumps[$n]->$h->m7,
+                $pumps[$n]->$h->p2,
+                $pumps[$n]->$h->p7,
+                $pumps[$n]->$h->p10,
+                $pumps[$n]->$h->p12,
+                $pumps[$n]->$h->p20
             ];
             $find = false;
             

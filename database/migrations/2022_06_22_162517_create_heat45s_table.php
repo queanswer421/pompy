@@ -21,21 +21,21 @@ class CreateHeat45sTable extends Migration
                 ->on('pumps')
                 ->onDelete('cascade');
 
-            $table->double('p45m20')->nullable()->default(0);            
+            $table->double('m20')->nullable()->default(0);            
 
-            $table->double('p45m15')->nullable()->default(0);
+            $table->double('m15')->nullable()->default(0);
 
-            $table->double('p45m7')->nullable()->default(0);
+            $table->double('m7')->nullable()->default(0);
 
-            $table->double('p45p2')->nullable()->default(0);
+            $table->double('p2')->nullable()->default(0);
 
-            $table->double('p45p7')->nullable()->default(0);
+            $table->double('p7')->nullable()->default(0);
 
-            $table->double('p45p10')->nullable()->default(0);
+            $table->double('p10')->nullable()->default(0);
 
-            $table->double('p45p12')->nullable()->default(0);
+            $table->double('p12')->nullable()->default(0);
 
-            $table->double('p45p20')->nullable()->default(0);
+            $table->double('p20')->nullable()->default(0);
 
             $table->timestamps();
         });

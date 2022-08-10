@@ -49,12 +49,12 @@
         <label class="block text-sm font-bold text-gray-700" for="title">Typ budynku</label>
         <select name="type" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Zapotrzebowanie W/m2" aria-label="Default select example">
             <option value="0" disabled>Wybierz rodzaj budynku</option>
-            <option value="15">Budynek pasywny</option>
-            <option value="25">Budynek niskoenergetyczny wentylacja mechaniczna</option>
-            <option value="40">Budynek energooszcędny wentylacja mechaniczna</option>
-            <option value="50">Nowy budynek z wentylacją grawitacyjną</option>
-            <option value="75">Stary budynek termomodernizowany</option>
-            <option value="100">Stary budynek</option>
+            <option value="15">[ 15 W/m2 ] Budynek pasywny</option>
+            <option value="25">[ 25 W/m2 ] Budynek niskoenergetyczny wentylacja mechaniczna</option>
+            <option value="40">[ 40 W/m2 ] Budynek energooszcędny wentylacja mechaniczna</option>
+            <option value="50">[ 50 W/m2 ] Nowy budynek z wentylacją grawitacyjną</option>
+            <option value="75">[ 75 W/m2 ] Stary budynek termomodernizowany</option>
+            <option value="100">[ 100 W/m2 ] Stary budynek</option>
         </select>
             <!-- <label class="block text-sm font-bold text-gray-700" for="title">Typ</label>
             <input type="text" name="type" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Zapotrzebowanie W/m2">
@@ -98,16 +98,4 @@
 
 </div>
 
-<!-- 
-    <div class="mx-auto mt-8">
-
-        <div class="flex flex-col mt-5">
-            <div class="flex flex-col">
-                <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
-                    <div class="w-full px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
 @endsection

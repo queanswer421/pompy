@@ -166,52 +166,6 @@
         </div>
     </div>
 </div>
-<div class="card-body">
-    <div><span id="liczba"></span><span>/{{count($standard)}}</span></div>
-    <div><span id="model"></span><span>-</span></div>
-    {{-- <div id="fruit"></div>
-    <div id="product"></div> --}}
-    <button type="button" id="prev" class="btn btn-success float-start">
-        wstecz
-    </button>
-    <button type="button" id="next" class="btn btn-success float-start">
-        dalej
-    </button>
-
-</div>
-<script type="text/javascript">
-    var currentCar;
-    var poczatek = 0;
-    var standard;
-
-    $(window).on('load', function() {
-        currentCar = {{$temp}};
-        standard = @json($standard);
-        // $.getJSON('http://localhost:8000/api/cars', function(jd) {
-        //     fruits = jd;
-        //     $("#fruit").html(fruits[poczatek]);
-        // });
-        $("#model").html(standard[currentCar].model);
-        $("#liczba").html(currentCar+1);
-    });
-
-    $("#prev").click(function(e){
-        e.preventDefault();
-        if(currentCar>0){
-            currentCar=currentCar-1;
-            $("#liczba").html(currentCar+1);
-            $("#model").html(standard[currentCar].model);
-        }
-    });
-    $("#next").click(function(e){
-        e.preventDefault();
-        if(currentCar<standard.length-1){
-            currentCar=currentCar+1;
-            $("#liczba").html(currentCar+1);
-            $("#model").html(standard[currentCar].model);
-        }
-    }); 
-</script>
 {{-- <div class="m-4 mb-8">
     <div class="flex flex-col mt-10">
         <div class="flex flex-col">

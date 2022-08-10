@@ -23,14 +23,33 @@ class PriceController extends Controller
             'cwu' => $request->input('cwu')
         ]);
         $house['cwu'] = $house['cwu']*0.25;
-        $house['heatDemand'] = $house['surface']*$house['type']/1000;
-        $house['heatDemandM15'] = ($house['heatDemand']/40)*35+$house['cwu'];
-        $house['heatDemandM7'] = ($house['heatDemand']/40)*27+$house['cwu'];
-        $house['heatDemandP2'] = ($house['heatDemand']/40)*18+$house['cwu'];
+        $house['heatDemand'] = $house['surface']*$house['type']/1000+$house['cwu'];
+        $house['heatDemandM15'] = ($house['heatDemand']/40)*35;
+        $house['heatDemandM7'] = ($house['heatDemand']/40)*27;
+        $house['heatDemandP2'] = ($house['heatDemand']/40)*18;
+        // $house['heatDemand'] = $house['surface']*$house['type']/1000+$house['cwu'];
 
-        $standardowe = Pump::all();
+        $standard = Pump::where('category_id',2)->get();
+        $basic = Pump::where('category_id', 3)->get();
+        $pro = Pump::where('category_id', 1)->get();
+        // for($n=0;$n<$standard->count();$n++){
+        //     // echo $pumps[$n]->model."<br>";
+        //     $array = [
+        //         $standard[$n]->heat35->m20,
+        //         $standard[$n]->heat35->m15,
+        //         $standard[$n]->heat35->m7,
+        //         $standard[$n]->heat35->p2,
+        //         $standard[$n]->heat35->p7,
+        //         $standard[$n]->heat35->p10,
+        //         $standard[$n]->heat35->p12,
+        //         $standard[$n]->heat35->p20
+        //     ];
+        //     // echo $array[2]."<br>";
+        // }
+
+
         // dd($standard[0]->tempbiwa);
-        $standard = $this->pumps($standardowe, $house);
+        // $standard = $this->pumps($standardowe, $house);
 
         // $standard = $this->temp($standardowe);
 
@@ -39,8 +58,10 @@ class PriceController extends Controller
         // $standard = $standard->sortByDesc('tempBiwa')->values()->all();
 
         // $standard = Pump::take(1)->first();
-        return view('price');
-        // , compact('standard', 'house'));
+        $standardOffer = 0;
+        $basicOffer = 0;
+        $proOffer = 0;
+        return view('price', compact('house', 'basic', 'pro', 'standard', 'standardOffer', 'basicOffer', 'proOffer'));
     }
     // public function temp($standard2){
 
