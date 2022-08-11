@@ -85,7 +85,7 @@ class PriceController extends Controller
             
         }
         // $basic = $basic->sortByDesc('tempBiwa')->values()->all();
-        $basicOffer = 1;
+        $basicOffer = $temp;
         $pro = $this->pumps($pro, $house);
         $temp = 0;
         // $pro = $pro->sortByDesc('tempBiwa')->values()->all();
