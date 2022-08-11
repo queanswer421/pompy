@@ -59,52 +59,45 @@ class PriceController extends Controller
             // dd($house);
         // $standard = Pump::take(1)->first();
         $standard = $this->pumps($standard, $house);
-
+        $temp = 0;
+        $standard = $standard->sortByDesc('tempBiwa');
         for ($i=0; $i<$standard->count();$i++){
-            $temp = 0;
 
-//            if ($standard[$i]->tempBiwa != -50){
-		$standard[$i]->tempBiwa = abs(-7-($standard[$i]->tempBiwa));
-//                if ((abs(-7-($standard[$i]->tempBiwa))) <= (abs(-7-($standard[$temp]->tempBiwa)))){
-		if ($standard[$i]->tempBiwa >= $standard[$temp]->tempBiwa){
-//		if ($standard[$i]->wynikBiwa >= $standard[$temp]->wynikBiwa){
-                    $temp = $i;
-//		    $wynikwartosci = abs(-7-($standard[$i]->tempBiwa));
-                }
-//            }  
-            
+            if ($standard[$i]->odleglosc <= $standard[$temp]->odleglosc){
+                $temp = $i;
+            }
         }
-//	dd($standard);
-        $standard = $standard->sortByDesc('tempBiwa')->values()->all();
+
         $standardOffer = $temp;
 
         $basic = $this->pumps($basic, $house);
+        $temp = 0;
+
         for ($i=0; $i<$basic->count();$i++){
-            $temp = 0;
 
-            if ($basic[$i]->tempBiwa != -50){
 
-                if (abs(-7-$basic[$i]->tempBiwa) <= abs(-7-$basic[$temp]->tempBiwa)){
+            // if ($basic[$i]->tempBiwa != -50){
+
+                if ($basic[$i]->odleglosc <= $basic[$temp]->odleglosc){
                     $temp = $i;
                 }
-            }  
+            // }  
             
         }
-        $basic = $basic->sortByDesc('tempBiwa')->values()->all();
-        $basicOffer = $temp;
-
+        // $basic = $basic->sortByDesc('tempBiwa')->values()->all();
+        $basicOffer = 1;
         $pro = $this->pumps($pro, $house);
+        $temp = 0;
+        // $pro = $pro->sortByDesc('tempBiwa')->values()->all();
+        $pro = $pro->sortByDesc('tempBiwa');
         for ($i=0; $i<$pro->count();$i++){
-            $temp = 0;
-
-            if ($pro[$i]->tempBiwa != -50){
-                if (abs(-7-$pro[$i]->tempBiwa) <= abs(-7-$pro[$temp]->tempBiwa)){
+            // if ($pro[$i]->tempBiwa != -50){
+                if ($pro[$i]->odleglosc <= $pro[$temp]->odleglosc){
                     $temp = $i;
                 }
-            }  
+            // }  
             
         }
-        $pro = $pro->sortByDesc('tempBiwa')->values()->all();
         $proOffer = $temp;
         return view('price', compact('house', 'basic', 'pro', 'standard', 'standardOffer', 'basicOffer', 'proOffer'));
     }
@@ -135,7 +128,7 @@ class PriceController extends Controller
                             $pump = $array35[$i] + ($j)*($array35[$i+1] - $array35[$i])/abs($chart[$i+1]-$chart[$i]);
                                 if ($pump <= $heat){
                                     $pumps[$n]->tempBiwa = $chart[$i]+$j;
-				    //$pumps[$n]->wynikBiwa = (abs(-7-$pumps[$n]->tempBiwa)); 
+                                    $pumps[$n]->odleglosc = (abs(-7-$pumps[$n]->tempBiwa));
                                 }
                                 else {
                                     $find = true;

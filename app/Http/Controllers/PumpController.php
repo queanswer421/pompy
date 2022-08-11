@@ -150,14 +150,14 @@ class PumpController extends Controller
         //   );
 
         $array = array(
-            $pump->heat35->p35m20,
-            $pump->heat35->p35m15,
-            $pump->heat35->p35m7,
-            $pump->heat35->p35p2,
-            $pump->heat35->p35p7,
-            $pump->heat35->p35p10,
-            $pump->heat35->p35p12,
-            $pump->heat35->p35p20,
+            $pump->heat35->m20,
+            $pump->heat35->m15,
+            $pump->heat35->m7,
+            $pump->heat35->p2,
+            $pump->heat35->p7,
+            $pump->heat35->p10,
+            $pump->heat35->p12,
+            $pump->heat35->p20,
         );
         $arrayHelp = array(-20, -15, -7, 2, 7, 10, 12, 20 );
         // $a0 = $this->wylicz();

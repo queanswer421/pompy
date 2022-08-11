@@ -23,7 +23,12 @@ return new class extends Migration
             $table->string('line');
             $table->string('model');
             $table->double('power');
-            $table->integer('type')->nullable()->default(0);
+            // $table->integer('type')->nullable()->default(0);
+            $table->unsignedBigInteger('type_id');
+            $table->foreign('type_id')
+                ->references('id')
+                ->on('types')
+                ->onDelete('cascade');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')
                 ->references('id')

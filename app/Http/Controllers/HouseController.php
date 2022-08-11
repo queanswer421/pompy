@@ -90,21 +90,19 @@ class HouseController extends Controller
         $pro = Pump::where('category_id', 1)->get();
 
         $basic = $this->pumps($basic, $house);
-        for ($i=0; $i<$basic->count();$i++){
-            $temp = 0;
-//            if ($basic[$i]->tempBiwa != -50){
-                if ((-7-$basic[$i]->tempBiwa) <= (-7-$basic[$temp]->tempBiwa)){
-                    $temp = 3;
+        $temp = 0;
+        for ($i=0; $i<$basic->count();$i++){     
+                if ($basic[$i]->odleglosc <= $basic[$temp]->odleglosc){
+                    $temp = $i;
                 }
-//            }  
         }
-	dd($temp);
-        $basic[$temp]->offer = "Polecana!";
+        // $basic[$temp]->offer = $temp;
         $basic = $basic->sortByDesc('tempBiwa')->values()->all();
+        
 
         $standard = $this->pumps($standard, $house);
+        $temp = 0;
         for ($i=0; $i<$standard->count();$i++){
-            $temp = 0;
             if ($standard[$i]->tempBiwa != -50){
                 if (abs(-7-$standard[$i]->tempBiwa) <= abs(-7-$standard[$temp]->tempBiwa)){
                     $temp = $i;
@@ -115,16 +113,18 @@ class HouseController extends Controller
         $standard = $standard->sortByDesc('tempBiwa')->values()->all();
 
         $pro = $this->pumps($pro, $house);
+        $temp = 0;
         for ($i=0; $i<$pro->count();$i++){
-            $temp = 0;
             if ($pro[$i]->tempBiwa != -50){
                 if (abs(-7-$pro[$i]->tempBiwa) <= abs(-7-$pro[$temp]->tempBiwa)){
                     $temp = $i;
                 }
             }  
         }
-        $pro[$temp]->offer = "Polecana!";
+        // $pro[$temp]->offer = "Polecana!";
         $pro = $pro->sortByDesc('tempBiwa')->values()->all();
+        $basic = [];
+        $pro = [];
 
         return view('house.show', compact('house','basic', 'standard','pro', 'chartHouse', 'temp'));
     }
@@ -153,7 +153,8 @@ class HouseController extends Controller
                             $heat = ($house->heatDemand/40)*abs(($chart[$i]+$j)-20);
                             $pump = $array35[$i] + ($j)*($array35[$i+1] - $array35[$i])/abs($chart[$i+1]-$chart[$i]);
                                 if ($pump <= $heat){
-                                    $pumps[$n]->tempBiwa = $chart[$i]+$j; 
+                                    $pumps[$n]->tempBiwa = $chart[$i]+$j;
+                                    $pumps[$n]->odleglosc = (abs(-7-$pumps[$n]->tempBiwa));
                                 }
                                 else {
                                     $find = true;

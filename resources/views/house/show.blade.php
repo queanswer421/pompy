@@ -76,7 +76,7 @@
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->volume}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->price}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{$b->offer}}</td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">***</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{$b->odleglosc}}</td>
                         
                         </tr>
                         @endforeach

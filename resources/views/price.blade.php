@@ -52,9 +52,9 @@
                             </div>
                         </li>
                         <li class="flex justify-between items-center">
-                            <span class="font-bold text-yellow-700 ml-3 text-base break-words">Głosnośc u źródła</span>
+                            <span class="font-bold text-yellow-700 ml-3 text-base break-words">Moc akustyczna</span>
                             <div>
-                                <span id="bVolume" class="font-bold"></span><span class="font-bold"> dB</span>
+                                <span id="bVolume" class="font-bold"></span><span class="font-bold"> [dB]</span>
                             </div>
                         </li>
                         <li class="flex justify-between items-center">
@@ -109,9 +109,9 @@
                             </div>
                         </li>
                         <li class="flex justify-between items-center">
-                            <span class="font-bold text-purple-900 ml-3 text-base break-words">Głosnośc u źródła</span>
+                            <span class="font-bold text-purple-900 ml-3 text-base break-words">Moc akustyczna</span>
                             <div>
-                                <span id="sVolume" class="font-bold"></span><span class="font-bold"> dB</span>
+                                <span id="sVolume" class="font-bold"></span><span class="font-bold"> [dB]</span>
                             </div>
                         </li>
                         <li class="flex justify-between items-center">
@@ -165,9 +165,9 @@
                             </div>
                         </li>
                         <li class="flex justify-between items-center">
-                            <span class="font-bold text-red-900 ml-3 text-base break-words">Głosnośc u źródła</span>
+                            <span class="font-bold text-red-900 ml-3 text-base break-words">Moc akustyczna</span>
                             <div>
-                                <span id="pVolume" class="font-bold"></span><span class="font-bold"> dB</span>
+                                <span id="pVolume" class="font-bold"></span><span class="font-bold"> [dB]</span>
                             </div>
                         </li>
                         <li class="flex justify-between items-center">
