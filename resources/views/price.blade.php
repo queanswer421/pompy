@@ -14,6 +14,10 @@
                 <div class="flex flex-col border border-yellow-600 px-8 py-12 text-center bg-white z-10 relative">
                     <span class="absolute -top-6 left-1/2 transform -translate-x-1/2 tracking-wider bg-yellow-700 text-white rounded-full px-4 py-2">Basic</span>
                     {{-- <h4 class="font-architect text-3xl text-purple-900">Basic</h4> --}}
+                    <div class="flex justify-between">
+                        <h5 id="bNumber" class="px-4 py-2 rounded-sm shadow-lg font-medium border border-yellow-700 bg-yellow-700 text-white hover:bg-white hover:text-purple-900"></h5>
+                        <h4 id="bOffer" class="px-4 py-2 rounded-sm text-xl shadow-lg font-bold text-yellow-700 hover:bg-white hover:text-purple-900 transform rotate-45"></h4>
+                    </div>
                     <div class="text-6xl font-bold py-8 border-b border-gray-300 text-yellow-700 flex-grow">
                         <span id="bProducer" class="text-5xl font-bold"></span><br>
                         <span id="bModel"class="text-3xl font-normal"></span>
@@ -56,11 +60,33 @@
                         </li>
 
                     </ul>
+                    <div id="accordion-collapse" data-accordion="collapse" class="my-4">
+                        <h2 id="accordion-collapse-heading-b1">
+                          <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-yellow-700 border border-b-0 border-yellow-700 hover:text-white hover:bg-yellow-700" data-accordion-target="#accordion-collapse-body-b1" aria-expanded="false" aria-controls="accordion-collapse-body-b1">
+                            <span>Dane szczegółowe</span>
+                            <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                          </button>
+                        </h2>
+                        <div id="accordion-collapse-body-b1" class="hidden" aria-labelledby="accordion-collapse-heading-b1">
+                          <div class="p-5 font-light border border-b-0 border-yellow-700">
+                            <p class="text-base my-2">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo incidunt nostrum vitae dolorem eius voluptas cum ad voluptatibus nesciunt, adipisci deleniti asperiores delectus architecto amet nobis ab enim! Architecto, distinctio.
+                            </p>
+                          </div>
+                        </div>
+                        <h2 id="accordion-collapse-heading-b2">
+                          <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-yellow-700 border border-b-1 border-yellow-700 hover:text-white hover:bg-yellow-700" data-accordion-target="#accordion-collapse-body-b2" aria-expanded="false" aria-controls="accordion-collapse-body-b2">
+                            <span>Pliki do pobrania</span>
+                            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                          </button>
+                        </h2>
+                        <div id="accordion-collapse-body-b2" class="hidden" aria-labelledby="accordion-collapse-heading-b2">
+                          <div class="p-5 font-light border border-b-1 border-yellow-700">
+                            <img src="https://wallbox.pl/img/imagecache/1001-2000/6ef1536475a6f8dee1fd0fe5941de622449a7794.jpg" class="w-full my-4" alt="">
+                        </div>
+                        </div>
+                    </div>
 
-                    <p class="text-base my-2">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo incidunt nostrum vitae dolorem eius voluptas cum ad voluptatibus nesciunt, adipisci deleniti asperiores delectus architecto amet nobis ab enim! Architecto, distinctio.
-                    </p>
-                    <img src="https://wallbox.pl/img/imagecache/1001-2000/6ef1536475a6f8dee1fd0fe5941de622449a7794.jpg" class="w-full my-4" alt="">
 
                     <a href="#"
                         class="px-6 py-4 rounded-sm shadow-lg font-medium border border-yellow-700 text-yellow-700 hover:bg-yellow-700 hover:text-white">
@@ -70,7 +96,10 @@
                 <div class="flex flex-col border-4 border-purple-900 px-8 py-12 text-center bg-white z-10 relative">
                     <span class="absolute -top-6 left-1/2 transform -translate-x-1/2 tracking-wider bg-purple-900 text-white rounded-full px-4 py-2">Standard</span>
                     {{-- <h4 class="font-architect text-3xl text-purple-900">Standard</h4> --}}
-
+                    <div class="flex justify-between">
+                        <h5 id="sNumber" class="px-4 py-2 rounded-sm shadow-lg font-medium border border-purple-900 bg-purple-900 text-white hover:bg-white hover:text-purple-900"></h5>
+                        <h4 id="sOffer" class="px-4 py-2 rounded-sm text-xl shadow-lg font-bold text-purple-900 hover:bg-white hover:text-purple-900 transform rotate-45"></h4>
+                    </div>
                     <div class="text-6xl font-bold py-8 border-b border-gray-300 text-purple-800 flex-grow">
                         <span id="sProducer" class="text-5xl font-bold"></span><br>
                         <span id="sModel"class="text-3xl font-normal"></span>
@@ -113,12 +142,33 @@
                         </li>
 
                     </ul>
-
-                    <p class="text-base my-2">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo incidunt nostrum vitae dolorem eius voluptas cum ad voluptatibus nesciunt, adipisci deleniti asperiores delectus architecto amet nobis ab enim! Architecto, distinctio.
-                    </p>
-                    <img src="https://wallbox.pl/img/imagecache/1001-2000/6ef1536475a6f8dee1fd0fe5941de622449a7794.jpg" class="w-full my-4" alt="">
-
+                        
+                    <div id="accordion-collapse" data-accordion="collapse" class="my-4">
+                        <h2 id="accordion-collapse-heading-s1">
+                          <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-purple-900 border border-b-0 border-purple-900 hover:text-white hover:bg-purple-900" data-accordion-target="#accordion-collapse-body-s1" aria-expanded="false" aria-controls="accordion-collapse-body-s1">
+                            <span>Dane szczegółowe</span>
+                            <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                          </button>
+                        </h2>
+                        <div id="accordion-collapse-body-s1" class="hidden" aria-labelledby="accordion-collapse-heading-s1">
+                          <div class="p-5 font-light border border-b-0 border-purple-900">
+                            <p class="text-base my-2">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo incidunt nostrum vitae dolorem eius voluptas cum ad voluptatibus nesciunt, adipisci deleniti asperiores delectus architecto amet nobis ab enim! Architecto, distinctio.
+                            </p>
+                          </div>
+                        </div>
+                        <h2 id="accordion-collapse-heading-s2">
+                          <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-purple-900 border border-b-1 border-purple-900 hover:text-white hover:bg-purple-900" data-accordion-target="#accordion-collapse-body-s2" aria-expanded="false" aria-controls="accordion-collapse-body-s2">
+                            <span>Pliki do pobrania</span>
+                            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                          </button>
+                        </h2>
+                        <div id="accordion-collapse-body-s2" class="hidden" aria-labelledby="accordion-collapse-heading-s2">
+                          <div class="p-5 font-light border border-b-1 border-purple-900">
+                            <img src="https://wallbox.pl/img/imagecache/1001-2000/6ef1536475a6f8dee1fd0fe5941de622449a7794.jpg" class="w-full my-4" alt="">
+                        </div>
+                        </div>
+                    </div>
                     <a href="#"
                         class="px-6 py-4 rounded-sm shadow-lg font-medium border border-purple-900 bg-purple-900 text-white hover:bg-white hover:text-purple-900">
                         Zatwierdz</a>
@@ -126,6 +176,10 @@
                 <div class="flex flex-col border-2 border-red-900 px-8 py-12 text-center bg-white z-10 relative">
                     <span class="absolute -top-6 left-1/2 transform -translate-x-1/2 tracking-wider bg-red-900 text-white rounded-full px-4 py-2">Pro</span>
                     {{-- <h4 class="font-architect text-3xl text-purple-900">Standard</h4> --}}
+                    <div class="flex justify-between">
+                        <h5 id="pNumber" class="px-4 py-2 rounded-sm shadow-lg font-medium border border-red-900 bg-red-900 text-white hover:bg-white hover:text-purple-900"></h5>
+                        <h4 id="pOffer" class="px-4 py-2 rounded-sm text-xl shadow-lg font-bold text-red-900 hover:bg-white hover:text-purple-900 transform rotate-45"></h4>
+                    </div>
 
                     <div class="text-6xl font-bold py-8 border-b border-gray-300 text-red-900 flex-grow">
                         <span id="pProducer" class="text-5xl font-bold"></span><br>
@@ -169,12 +223,32 @@
                         </li>
 
                     </ul>
-                    
-                    <p class="text-base my-2">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo incidunt nostrum vitae dolorem eius voluptas cum ad voluptatibus nesciunt, adipisci deleniti asperiores delectus architecto amet nobis ab enim! Architecto, distinctio.
-                    </p>
-                    <img src="https://wallbox.pl/img/imagecache/1001-2000/6ef1536475a6f8dee1fd0fe5941de622449a7794.jpg" class="w-full my-4" alt="">
-
+                    <div id="accordion-collapse" data-accordion="collapse" class="my-4">
+                        <h2 id="accordion-collapse-heading-p1">
+                          <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-red-900 border border-b-0 border-red-900 hover:text-white hover:bg-red-900" data-accordion-target="#accordion-collapse-body-p1" aria-expanded="false" aria-controls="accordion-collapse-body-p1">
+                            <span>Dane szczegółowe</span>
+                            <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                          </button>
+                        </h2>
+                        <div id="accordion-collapse-body-p1" class="hidden" aria-labelledby="accordion-collapse-heading-p1">
+                          <div class="p-5 font-light border border-b-0 border-red-900">
+                            <p class="text-base my-2">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo incidunt nostrum vitae dolorem eius voluptas cum ad voluptatibus nesciunt, adipisci deleniti asperiores delectus architecto amet nobis ab enim! Architecto, distinctio.
+                            </p>
+                          </div>
+                        </div>
+                        <h2 id="accordion-collapse-heading-p2">
+                          <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-red-900 border border-b-1 border-red-900 hover:text-white hover:bg-red-900" data-accordion-target="#accordion-collapse-body-p2" aria-expanded="false" aria-controls="accordion-collapse-body-p2">
+                            <span>Pliki do pobrania</span>
+                            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                          </button>
+                        </h2>
+                        <div id="accordion-collapse-body-p2" class="hidden" aria-labelledby="accordion-collapse-heading-p2">
+                          <div class="p-5 font-light border border-b-1 border-yellow-700">
+                            <img src="https://wallbox.pl/img/imagecache/1001-2000/6ef1536475a6f8dee1fd0fe5941de622449a7794.jpg" class="w-full my-4" alt="">
+                        </div>
+                        </div>
+                    </div>
                     <a href="#"
                         class="px-6 py-4 rounded-sm shadow-lg font-medium border border-red-900 text-red-900 hover:bg-red-900 hover:text-white">
                         Zatwierdz</a>
@@ -366,15 +440,17 @@
         standard = @json($standard);
         pro = @json($pro);
 
-        console.log(basic);
-        console.log(standard);
-        console.log(pro);
+        // console.log(basic);
+        // console.log(standard);
+        // console.log(pro);
         $("#bProducer").html(basic[basicPos].producer.name);
         $("#bModel").html(basic[basicPos].model);
         $("#bPower").html(basic[basicPos].power);
         $("#bTempBiwa").html(basic[basicPos].tempBiwa);
         $("#bVolume").html(basic[basicPos].volume);
         $("#bPrice").html(basic[basicPos].price);
+        $("#bNumber").html(basicPos+1+" / "+basic.length);
+        $("#bOffer").html("POLECAMY");
 
         $("#sProducer").html(standard[standardPos].producer.name);
         $("#sModel").html(standard[standardPos].model);
@@ -382,6 +458,8 @@
         $("#sTempBiwa").html(standard[standardPos].tempBiwa);
         $("#sVolume").html(standard[standardPos].volume);
         $("#sPrice").html(standard[standardPos].price);
+        $("#sNumber").html(standardPos+1+" / "+standard.length);
+        $("#sOffer").html("POLECAMY");
 
         $("#pProducer").html(pro[proPos].producer.name);
         $("#pModel").html(pro[proPos].model);
@@ -389,6 +467,8 @@
         $("#pTempBiwa").html(pro[proPos].tempBiwa);
         $("#pVolume").html(pro[proPos].volume);
         $("#pPrice").html(pro[proPos].price);
+        $("#pNumber").html(proPos+1+" / "+pro.length);
+        $("#pOffer").html("POLECAMY");
 
 
     });
@@ -402,6 +482,14 @@
             $("#bTempBiwa").html(basic[basicPos].tempBiwa);
             $("#bVolume").html(basic[basicPos].volume);
             $("#bPrice").html(basic[basicPos].price);
+            $("#bNumber").html(basicPos+1+" / "+basic.length);
+            if (basicPos == {{$basicOffer}}){
+                $("#bOffer").show();
+            }
+            else{
+                $("#bOffer").hide();
+            }
+                
         }
     });
     $("#bNext").click(function(e){
@@ -414,6 +502,13 @@
             $("#bTempBiwa").html(basic[basicPos].tempBiwa);
             $("#bVolume").html(basic[basicPos].volume);
             $("#bPrice").html(basic[basicPos].price);
+            $("#bNumber").html(basicPos+1+" / "+basic.length);
+            if (basicPos == {{$basicOffer}}){
+                $("#bOffer").show();
+            }
+            else{
+                $("#bOffer").hide();
+            }
         }
     }); 
     $("#sPrev").click(function(e){
@@ -426,6 +521,13 @@
             $("#sTempBiwa").html(standard[standardPos].tempBiwa);
             $("#sVolume").html(standard[standardPos].volume);
             $("#sPrice").html(standard[standardPos].price);
+            $("#sNumber").html(standardPos+1+" / "+standard.length);
+            if (standardPos == {{$standardOffer}}){
+                $("#sOffer").show();
+            }
+            else{
+                $("#sOffer").hide();
+            }
         }
     });
     $("#sNext").click(function(e){
@@ -438,6 +540,13 @@
             $("#sTempBiwa").html(standard[standardPos].tempBiwa);
             $("#sVolume").html(standard[standardPos].volume);
             $("#sPrice").html(standard[standardPos].price);
+            $("#sNumber").html(standardPos+1+" / "+standard.length);
+            if (standardPos == {{$standardOffer}}){
+                $("#sOffer").show();
+            }
+            else{
+                $("#sOffer").hide();
+            }
         }
     }); 
     $("#pPrev").click(function(e){
@@ -450,6 +559,13 @@
             $("#pTempBiwa").html(pro[proPos].tempBiwa);
             $("#pVolume").html(pro[proPos].volume);
             $("#pPrice").html(pro[proPos].price);
+            $("#pNumber").html(proPos+1+" / "+pro.length);
+            if (proPos == {{$proOffer}}){
+                $("#pOffer").show();
+            }
+            else{
+                $("#pOffer").hide();
+            }
         }
     });
     $("#pNext").click(function(e){
@@ -462,6 +578,13 @@
             $("#pTempBiwa").html(pro[proPos].tempBiwa);
             $("#pVolume").html(pro[proPos].volume);
             $("#pPrice").html(pro[proPos].price);
+            $("#pNumber").html(proPos+1+" / "+pro.length);
+            if (proPos == {{$proOffer}}){
+                $("#pOffer").show();
+            }
+            else{
+                $("#pOffer").hide();
+            }
         }
     }); 
 
