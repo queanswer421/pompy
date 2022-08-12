@@ -2,7 +2,7 @@
  
 @section('content')
 {{-- house section --}}
-
+{{-- {{dd($__data)}} --}}
 
 
 
@@ -10,16 +10,6 @@
     <section class="pt-2 md:pt-4 lg:pt-6 overflow-x-hidden md:overflow-x-visible">
         <div class="container relative">
             <img src="assets/Vector@2x.svg" alt="lines" class="absolute -right-24 md:-right-32 -top-24 md:-top-32">
-{{--             
-    <div class="flex flex-col items-center text-center z-10">
-                <h1 class="text-3xl md:text-5xl font-bold tracking-light">
-                    Prosta, przejrzysta wycena
-                </h1>
-                <p class="w-full md:w-7/12 mt-3 sm:mt-5 text-lg sm:mx-auto md:text-xl">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit sed distinctio ullam incidunt vitae fugit, placeat alias magnam commodi quam facilis voluptatem dolor facere cum id esse ad recusandae eos?
-                </p>
-            </div> --}}
-
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-10 xl:gap-y-0 mt-12 md:mt-16 lg:mt-24 border-b border-gray-300 pb-12 lg:pb-20 px-0 xl:px-12 2xl:px-20">
                 <div class="flex flex-col border border-yellow-600 px-8 py-12 text-center bg-white z-10 relative">
                     <span class="absolute -top-6 left-1/2 transform -translate-x-1/2 tracking-wider bg-yellow-700 text-white rounded-full px-4 py-2">Basic</span>
@@ -192,7 +182,7 @@
 
 
             </div>
-            <img src="assets/Vector3.png" alt="lines" class="hidden md:block h-full absolute md:top-0 xl:-bottom-10 2xl:-left-32">
+            <img src="assets/Vector.png" alt="lines" class="hidden md:block h-full absolute md:top-0 xl:-bottom-10 2xl:-left-32">
         </div>
     </section>
 <!-- section test -->
@@ -299,16 +289,16 @@
                     </tr>
                     <tbody class="bg-white">
                         pompy standard
-                        @foreach ($standard as $b)
+                        @foreach ($standard as $s)
                         <tr>
                         
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->producer->name}}</td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->line}}</td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->model}}</td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->tempBiwa}}</td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->heat35->m7}}</td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->volume}}</td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->price}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->producer->name}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->line}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->model}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->tempBiwa}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->heat35->m7}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->volume}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $s->price}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">***</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">***</td>
                         
@@ -339,16 +329,16 @@
                     </tr>
                     <tbody class="bg-white">
                         pompy pro
-                        @foreach ($pro as $b)
+                        @foreach ($pro as $p)
                         <tr>
                         
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->producer->name}}</td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->line}}</td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->model}}</td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->tempBiwa}}</td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->heat35->m7}}</td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->volume}}</td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $b->price}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $p->producer->name}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $p->line}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $p->model}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $p->tempBiwa}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $p->heat35->m7}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $p->volume}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $p->price}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">***</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">***</td>
                         
@@ -362,7 +352,6 @@
 </div>
 
 <script type="text/javascript">
-    var standardPos;
     var basicPos, standardPos, proPos;
     var standard;
     var basic;
@@ -372,9 +361,21 @@
         standardPos = {{$standardOffer}};
         basicPos = {{$basicOffer}};
         proPos = {{$proOffer}};
-        pro = @json($pro);
-        standard = @json($standard);
+        
         basic = @json($basic);
+        standard = @json($standard);
+        pro = @json($pro);
+
+        console.log(basic);
+        console.log(standard);
+        console.log(pro);
+        $("#bProducer").html(basic[basicPos].producer.name);
+        $("#bModel").html(basic[basicPos].model);
+        $("#bPower").html(basic[basicPos].power);
+        $("#bTempBiwa").html(basic[basicPos].tempBiwa);
+        $("#bVolume").html(basic[basicPos].volume);
+        $("#bPrice").html(basic[basicPos].price);
+
         $("#sProducer").html(standard[standardPos].producer.name);
         $("#sModel").html(standard[standardPos].model);
         $("#sPower").html(standard[standardPos].power);
@@ -389,14 +390,32 @@
         $("#pVolume").html(pro[proPos].volume);
         $("#pPrice").html(pro[proPos].price);
 
-        $("#bProducer").html(basic[basicPos].producer.name);
-        $("#bModel").html(basic[basicPos].model);
-        $("#bPower").html(basic[basicPos].power);
-        $("#bTempBiwa").html(basic[basicPos].tempBiwa);
-        $("#bVolume").html(basic[basicPos].volume);
-        $("#bPrice").html(basic[basicPos].price);
-    });
 
+    });
+    $("#bPrev").click(function(e){
+        e.preventDefault();
+        if(basicPos>0){
+            basicPos=basicPos-1;
+            $("#bProducer").html(basic[basicPos].producer.name);
+            $("#bModel").html(basic[basicPos].model);
+            $("#bPower").html(basic[basicPos].power);
+            $("#bTempBiwa").html(basic[basicPos].tempBiwa);
+            $("#bVolume").html(basic[basicPos].volume);
+            $("#bPrice").html(basic[basicPos].price);
+        }
+    });
+    $("#bNext").click(function(e){
+        e.preventDefault();
+        if(basicPos<basic.length-1){
+            basicPos=basicPos+1;
+            $("#bProducer").html(basic[basicPos].producer.name);
+            $("#bModel").html(basic[basicPos].model);
+            $("#bPower").html(basic[basicPos].power);
+            $("#bTempBiwa").html(basic[basicPos].tempBiwa);
+            $("#bVolume").html(basic[basicPos].volume);
+            $("#bPrice").html(basic[basicPos].price);
+        }
+    }); 
     $("#sPrev").click(function(e){
         e.preventDefault();
         if(standardPos>0){
@@ -445,29 +464,6 @@
             $("#pPrice").html(pro[proPos].price);
         }
     }); 
-    $("#bPrev").click(function(e){
-        e.preventDefault();
-        if(basicPos>0){
-            basicPos=basicPos-1;
-            $("#bProducer").html(basic[basicPos].producer.name);
-            $("#bModel").html(basic[basicPos].model);
-            $("#bPower").html(basic[basicPos].power);
-            $("#bTempBiwa").html(basic[basicPos].tempBiwa);
-            $("#bVolume").html(basic[basicPos].volume);
-            $("#bPrice").html(basic[basicPos].price);
-        }
-    });
-    $("#bNext").click(function(e){
-        e.preventDefault();
-        if(basicPos<basic.length-1){
-            basicPos=basicPos+1;
-            $("#bProducer").html(basic[basicPos].producer.name);
-            $("#bModel").html(basic[basicPos].model);
-            $("#bPower").html(basic[basicPos].power);
-            $("#bTempBiwa").html(basic[basicPos].tempBiwa);
-            $("#bVolume").html(basic[basicPos].volume);
-            $("#bPrice").html(basic[basicPos].price);
-        }
-    }); 
+
 </script>
 @endsection

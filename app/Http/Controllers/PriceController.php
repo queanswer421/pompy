@@ -8,7 +8,7 @@ use App\Models\House;
 
 class PriceController extends Controller
 {
-    public function show(Request $request, House $house){
+    public function show(Request $request){
 
         $request->validate([
             'surface' => 'required',
@@ -32,73 +32,47 @@ class PriceController extends Controller
         $standard = Pump::where('category_id',2)->get();
         $basic = Pump::where('category_id', 3)->get();
         $pro = Pump::where('category_id', 1)->get();
-        // for($n=0;$n<$standard->count();$n++){
-        //     // echo $pumps[$n]->model."<br>";
-        //     $array = [
-        //         $standard[$n]->heat35->m20,
-        //         $standard[$n]->heat35->m15,
-        //         $standard[$n]->heat35->m7,
-        //         $standard[$n]->heat35->p2,
-        //         $standard[$n]->heat35->p7,
-        //         $standard[$n]->heat35->p10,
-        //         $standard[$n]->heat35->p12,
-        //         $standard[$n]->heat35->p20
-        //     ];
-        //     // echo $array[2]."<br>";
+
+        $array = $this->pumps($basic, $house);
+        $basic = $array[0];
+        $basicOffer = $array[1];
+
+        $array = $this->pumps($standard, $house);
+        $standard = $array[0];
+        $standardOffer = $array[1];
+
+        $array = $this->pumps($pro, $house);
+        $pro = $array[0];
+        $proOffer = $array[1];
+        // dd($standard, $standardOffer);
+        // $temp = 0;
+        // $standard = $standard->sortByDesc('tempBiwa')->values();
+        // for ($i=0; $i<count($standard);$i++){
+        //     if ($standard[$i]->odleglosc <= $standard[$temp]->odleglosc){
+        //         $temp = $i;
+        //     }
         // }
+        
 
+        // $basic = $this->pumps($basic, $house);
+        // $temp = 0;
+        // $basic = $basic->sortByDesc('tempBiwa')->values();
+        // for ($i=0; $i<count($basic);$i++){
+        //     if ($basic[$i]->odleglosc <= $basic[$temp]->odleglosc){
+        //         $temp = $i;
+        //     }            
+        // }
+        // $basicOffer = $temp;
 
-        // dd($standard[0]->tempbiwa);
-        // $standard = $this->pumps($standardowe, $house);
-
-        // $standard = $this->temp($standardowe);
-
-
-        // $standard[$temp]->offer = "Polecana!";
-        // $standard = $standard->sortByDesc('tempBiwa')->values()->all();
-            // dd($house);
-        // $standard = Pump::take(1)->first();
-        $standard = $this->pumps($standard, $house);
-        $temp = 0;
-        $standard = $standard->sortByDesc('tempBiwa');
-        for ($i=0; $i<$standard->count();$i++){
-
-            if ($standard[$i]->odleglosc <= $standard[$temp]->odleglosc){
-                $temp = $i;
-            }
-        }
-
-        $standardOffer = $temp;
-
-        $basic = $this->pumps($basic, $house);
-        $temp = 0;
-
-        for ($i=0; $i<$basic->count();$i++){
-
-
-            // if ($basic[$i]->tempBiwa != -50){
-
-                if ($basic[$i]->odleglosc <= $basic[$temp]->odleglosc){
-                    $temp = $i;
-                }
-            // }  
-            
-        }
-        // $basic = $basic->sortByDesc('tempBiwa')->values()->all();
-        $basicOffer = $temp;
-        $pro = $this->pumps($pro, $house);
-        $temp = 0;
-        // $pro = $pro->sortByDesc('tempBiwa')->values()->all();
-        $pro = $pro->sortByDesc('tempBiwa');
-        for ($i=0; $i<$pro->count();$i++){
-            // if ($pro[$i]->tempBiwa != -50){
-                if ($pro[$i]->odleglosc <= $pro[$temp]->odleglosc){
-                    $temp = $i;
-                }
-            // }  
-            
-        }
-        $proOffer = $temp;
+        // $pro = $this->pumps($pro, $house);
+        // $temp = 0;
+        // $pro = $pro->sortByDesc('tempBiwa')->values();
+        // for ($i=0; $i<count($pro);$i++){
+        //         if ($pro[$i]->odleglosc <= $pro[$temp]->odleglosc){
+        //             $temp = $i;
+        //         }
+        // }
+        // $proOffer = $temp;
         return view('price', compact('house', 'basic', 'pro', 'standard', 'standardOffer', 'basicOffer', 'proOffer'));
     }
 
@@ -106,7 +80,7 @@ class PriceController extends Controller
         $chart = [-20, -15, -7, 2, 7, 10, 12, 20];
         $h = 'heat'.$house->temp;
         for($n=0;$n<$pumps->count();$n++){
-            $array35 = [
+            $array = [
                 $pumps[$n]->$h->m20,
                 $pumps[$n]->$h->m15,
                 $pumps[$n]->$h->m7,
@@ -116,16 +90,19 @@ class PriceController extends Controller
                 $pumps[$n]->$h->p12,
                 $pumps[$n]->$h->p20
             ];
-            
             $find = false;
-            
+            //zastanawiam się
+            if ($house->heatDemand < $pumps[$n]->$h->m20){
+                $pumps[$n]->tempBiwa = -25;
+                $pumps[$n]->odleglosc = (abs(-7-$pumps[$n]->tempBiwa));
+            } 
             if($find == false){
                 //skracam do +7
                 for ($i = 0; $i<=4; $i++){
                     if($i<4){
                         for($j = 0;$j<abs($chart[$i+1]-$chart[$i]);$j++){
                             $heat = ($house->heatDemand/40)*abs(($chart[$i]+$j)-20);
-                            $pump = $array35[$i] + ($j)*($array35[$i+1] - $array35[$i])/abs($chart[$i+1]-$chart[$i]);
+                            $pump = $array[$i] + ($j)*($array[$i+1] - $array[$i])/abs($chart[$i+1]-$chart[$i]);
                                 if ($pump <= $heat){
                                     $pumps[$n]->tempBiwa = $chart[$i]+$j;
                                     $pumps[$n]->odleglosc = (abs(-7-$pumps[$n]->tempBiwa));
@@ -138,6 +115,15 @@ class PriceController extends Controller
                 }
             }
         }
-        return $pumps;
+        $temp = 0;
+        $pumps = $pumps->sortByDesc('tempBiwa')->values();
+        for ($i=0; $i<count($pumps);$i++){
+            if ($pumps[$i]->odleglosc <= $pumps[$temp]->odleglosc){
+                $temp = $i;
+            }
+        }
+        $pumpOffer = $temp;
+        $array = [$pumps, $pumpOffer];
+        return $array;
     }
 }
