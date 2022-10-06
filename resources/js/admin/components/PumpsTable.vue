@@ -214,7 +214,7 @@
       methods: {
         async initialize(){
           try {
-            let {data} = await this.axios.get('http://localhost/admin/pumps');
+            let {data} = await this.axios.get('http://pompyapi.online/admin/pumps');
             console.log(data);
             this.pumps = data.data;
           } catch (e) {
