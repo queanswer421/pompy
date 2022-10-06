@@ -9,3 +9,15 @@ mix
     .postCss('resources/css/admin.css', 'public/css', [
         //
     ]);
+    
+    module.exports = {
+        //...
+        devServer: {
+          proxy: {
+            '/admin': { 
+            target: 'http://localhost:8000',
+            changeOrigin: true 
+        }
+          },
+        },
+      };
