@@ -99,13 +99,14 @@
                     <a href="#" class="font-medium hover:text-purple-900">Dla Twojej firmy</a>
                     <a href="#" class="font-medium hover:text-purple-900">Cennik</a>
                     <a href="#" class="font-medium hover:text-purple-900">O nas</a>
+                    <a href="/admin" class="font-medium hover:text-purple-900">admin</a>
                 </nav>
 
                 <div class="hidden lg:flex lg:flex-1 items-center justify-end">
-                    <a href="#" class="font-medium hover:text-purple-900">Zaloguj się</a>
-                    <a href="#"
+                    <!-- <a href="/appvue" class="font-medium hover:text-purple-900">Zaloguj się</a> -->
+                    <a href="/app"
                         class="ml-8 px-4 py-2 rounded shadow-sm font-medium text-white bg-purple-700 hover:bg-gray-900">
-                        Zarejestruj się
+                        Zaloguj się
                     </a>
                 </div>
             </div>
