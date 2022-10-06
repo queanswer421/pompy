@@ -302,7 +302,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context.prev = 0;
                 _context.next = 3;
-                return _this.axios.get('http://localhost/admin/pumps');
+                return _this.axios.get('http://localhost:8000/admin/pumps');
 
               case 3:
                 _yield$_this$axios$ge = _context.sent;
