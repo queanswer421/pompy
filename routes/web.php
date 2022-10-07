@@ -14,6 +14,11 @@ Route::get('/admin', function(){
     return view('admin');
 });
 //#############################################
+Route::get('/roger', function(){
+    return Http::get('pompyapi.online:8000/admin/pumps');
+});
+
+
 
 Route::resource('/pump', PumpController::class);
 Route::resource('/house', HouseController::class);
