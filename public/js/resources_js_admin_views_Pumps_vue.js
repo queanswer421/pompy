@@ -38,7 +38,7 @@ __webpack_require__.r(__webpack_exports__);
     getPumps: function getPumps() {
       var _this = this;
 
-      fetch('http://127.0.0.1:8000/admin/pumps').then(function (response) {
+      fetch('http://localhost:8000/admin/pumps').then(function (response) {
         return response.json();
       }).then(function (json) {
         _this.pumps = json.data;

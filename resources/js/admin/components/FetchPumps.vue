@@ -24,7 +24,7 @@ export default {
     },
     methods: {
       getPumps: function() {
-        fetch('http://127.0.0.1:8000/admin/pumps')
+        fetch('http://localhost:8000/admin/pumps')
           .then(response => response.json())
           .then(json => {
             this.pumps = json.data;
