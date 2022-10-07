@@ -15,6 +15,7 @@ Route::get('/admin', function(){
 });
 //#############################################
 Route::get('/roger', function(){
+    return "testtetete";
     return Http::get('pompyapi.online:8000/admin/pumps');
 });
 
