@@ -13,6 +13,12 @@ Route::get('/app', function(){
 Route::get('/admin', function(){
     return view('admin');
 });
+Route::get('/employers', function(){
+    return 'Employers';
+});
+Route::get('/companies', function(){
+    return 'Company';
+});
 //#############################################
 Route::get('/roger', function(){
     return Http::get('pompyapi.online:8000/admin/pumps');
