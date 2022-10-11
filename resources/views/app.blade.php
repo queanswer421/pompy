@@ -7,7 +7,7 @@
         <title>Pumps Admin</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
-        <link href="{{ asset('/css/admin.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div id="admin">
@@ -18,6 +18,6 @@
                'csrfToken' => csrf_token(),
                     ]); ?>
           </script>
-        <script src="{{asset('/js/admin.js')}}"></script>
+        <script src="{{asset('/js/app/app.js')}}"></script>
     </body>
 </html>
