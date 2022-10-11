@@ -1,7 +1,7 @@
 require('./bootstrap');
 import Vue from 'vue'
 import Vuetify from 'vuetify'
-import '../../../node_modules/vuetify/dist/vuetify.min.css'
+import 'vuetify/dist/vuetify.min.css'
 
 import router from './router'
 import store from './store'
