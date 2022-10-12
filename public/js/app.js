@@ -22679,7 +22679,7 @@ var render = function () {
                                                 "v-btn",
                                                 {
                                                   attrs: {
-                                                    href: "http://localhost:8000/employers/",
+                                                    href: "http://pompystrona.online/employers/",
                                                     rounded: "",
                                                     color: "teal darken-3",
                                                     dark: "",
@@ -22848,7 +22848,7 @@ var render = function () {
                                                 "v-btn",
                                                 {
                                                   attrs: {
-                                                    href: "http://localhost:8000/companies/",
+                                                    href: "http://pompystrona.online/companies/",
                                                     rounded: "",
                                                     color: "teal darken-3",
                                                     dark: "",

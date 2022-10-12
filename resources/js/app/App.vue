@@ -16,7 +16,7 @@
                         
                       </v-card-text>
                       <div class="text-center mt-3 mb-5">
-                        <v-btn href="http://localhost:8000/employers/" rounded color="teal darken-3" dark>Login</v-btn>
+                        <v-btn href="http://pompystrona.online/employers/" rounded color="teal darken-3" dark>Login</v-btn>
                       </div>
                     </v-col>
                     <v-col cols="12" md="4" class="teal darken-3">
@@ -53,7 +53,7 @@
 
                       </v-card-text>
                       <div class="text-center mt-3 mb-5">
-                        <v-btn href="http://localhost:8000/companies/" rounded color="teal darken-3" dark>Login</v-btn>
+                        <v-btn href="http://pompystrona.online/companies/" rounded color="teal darken-3" dark>Login</v-btn>
                       </div>
                     </v-col>
                   </v-row>
