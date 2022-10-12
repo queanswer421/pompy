@@ -4,7 +4,7 @@ mix
 .js('resources/js/app/app.js', 'public/js').vue()
 // .js('resources/js/company/company.js', 'public/js')
 // .js('resources/js/employer/employer.js', 'public/js')
-.js('resources/js/admin/admin.js', 'public/js').vue()
+// .js('resources/js/admin/admin.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         
     ])
@@ -14,9 +14,9 @@ mix
     // .postCss('resources/css/employer.css', 'public/css', [
         
     // ])
-    .postCss('resources/css/admin.css', 'public/css', [
-        //
-    ]);
+    // .postCss('resources/css/admin.css', 'public/css', [
+    //     //
+    // ]);
     
     // module.exports = {
     //     //...

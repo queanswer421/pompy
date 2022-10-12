@@ -11,7 +11,7 @@
     </head>
     <body>
         <div id="app">
-            <Welcome />
+            
         </div>
          <script>
            window.Laravel = <?php echo json_encode([
