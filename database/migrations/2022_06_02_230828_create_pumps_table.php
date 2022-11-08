@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pumps', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('producer_id')->default(1);
+            $table->increments('id');
+            $table->unsignedInteger('producer_id')->default(1);
             $table->foreign('producer_id')
                 ->references('id')
                 ->on('producers')
@@ -24,12 +24,12 @@ return new class extends Migration
             $table->string('model');
             $table->double('power');
             // $table->integer('type')->nullable()->default(0);
-            $table->unsignedBigInteger('type_id');
+            $table->unsignedInteger('type_id');
             $table->foreign('type_id')
                 ->references('id')
                 ->on('types')
                 ->onDelete('cascade');
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedInteger('category_id');
             $table->foreign('category_id')
                 ->references('id')
                 ->on('categories')

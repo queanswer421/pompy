@@ -11,7 +11,7 @@ class Pump extends Model
     use HasFactory;
 
     protected $fillable = [
-        'producer_id', 'line', 'model', 'category_id', 'type_id',
+        'producer_id', 'line', 'model', 'category_id', 'power', 'type_id',
         'heat35_id', 'heat45_id', 'heat55_id', 'volume', 'price'
     ];
     public function category()

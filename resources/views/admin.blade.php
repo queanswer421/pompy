@@ -11,7 +11,6 @@
     </head>
     <body>
         <div id="admin">
-            <Welcome />
         </div>
          <script>
            window.Laravel = <?php echo json_encode([

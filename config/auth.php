@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
+        'guard' => 'admin',
+        'passwords' => 'employers',
     ],
 
     /*
@@ -36,9 +36,29 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'admin' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'administrators',
+        ],
+        'admin-api' => [
+            'driver' => 'passport',
+            'provider' => 'administrators',
+        ],
+        // 'manager' => [
+        //     'driver' => 'session',
+        //     'provider' => 'managers',
+        // ],
+        'manager-api' => [
+            'driver' => 'passport',
+            'provider' => 'managers',
+        ],
+        // 'emplo' => [
+        //     'driver' => 'session',
+        //     'provider' => 'employers',
+        // ],
+        'employer-api' => [
+            'driver' => 'passport',
+            'provider' => 'employers',
         ],
     ],
 
@@ -60,9 +80,17 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'administrators' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Administrator::class,
+        ],
+        'managers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Manager::class,
+        ],
+        'employers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Employer::class,
         ],
 
         // 'users' => [
@@ -87,8 +115,8 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
+        'employers' => [
+            'provider' => 'employers',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

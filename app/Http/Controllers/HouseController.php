@@ -16,7 +16,6 @@ class HouseController extends Controller
     public function index()
     {
         $house = House::latest()->get();
-      
         return view('house.index',compact('house'))
                 ->with('i', (request()->input('page', 1) - 1) * 5);
     }

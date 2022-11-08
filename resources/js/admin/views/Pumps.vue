@@ -19,7 +19,7 @@
 </template>
 <script>
   // import PumpsTableTest from "../components/PumpsTableTest";
-  import PumpsTable from "../components/PumpsTable";
+import PumpsTable from "../components/PumpsTable";
 import FetchPumps from "../components/FetchPumps.vue";
 
   export default {
@@ -29,7 +29,6 @@ import FetchPumps from "../components/FetchPumps.vue";
     }),
   
     components: {
-    // PumpsTableTest,
     PumpsTable,
     FetchPumps
 },

@@ -14,8 +14,8 @@ class CreateHeat45sTable extends Migration
     public function up()
     {
         Schema::create('heat45s', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('pump_id');
+            $table->increments('id');
+            $table->unsignedInteger('pump_id');
             $table->foreign('pump_id')
                 ->references('id')
                 ->on('pumps')

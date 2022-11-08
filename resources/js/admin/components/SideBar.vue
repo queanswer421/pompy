@@ -22,15 +22,15 @@
                         <v-list-item-title v-text="item.text" :class="active ? 'white--text' : 'grey--text'" ></v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item class="mt-16" v-slot="{ active }" router to="/admin/end">
+                <v-list-item class="mt-16" v-slot="{ active }" @click="logout">
                     <v-list-item-icon class="ml-6">
                         <v-icon :color="active ? 'white' : 'grey'" >mdi-exit-to-app</v-icon>
                     </v-list-item-icon>
                     <v-list-item-content>
-                        <v-list-item-title  :class="active ? 'white--text' : 'grey--text'">Koniec</v-list-item-title>
+                        <v-list-item-title  :class="active ? 'white--text' : 'grey--text'">Wyloguj</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item> 
-                <a href="/">EXIT</a>
+                
 
 
             </v-list-item-group>
@@ -47,16 +47,24 @@ export default {
     data: () =>({
         selectedItem: 0,
         items: [
-            {icon: 'mdi-home', text: 'Home', route: '/admin'},
+            {icon: 'mdi-home', text: 'Home', route: '/admin/home'},
             {icon: 'mdi-sun-thermometer', text: 'Pompy', route: '/admin/pumps'},
-            {icon: 'mdi-home-city', text: 'Firmy', route: '/admin/company'},
-            {icon: 'mdi-account-outline', text: 'Pracownicy', route: '/admin/employers'},
             {icon: 'mdi-cog', text: 'Konfigurator', route: '/admin/settings'},
+            {icon: 'mdi-home-city', text: 'Firmy', route: '/admin/company'},
+            // {icon: 'mdi-factory', text: 'Magazyny', route: '/admin/employers'},
+            {icon: 'mdi-account-outline', text: 'Menadżerowie', route: '/admin/managers'},
+            {icon: 'mdi-account-outline', text: 'Pracownicy', route: '/admin/employers'},
+
             // {icon: 'mdi-content-paste', text: 'Logi', route: '/'},
-            // {icon: 'mdi-map-marker-outline', text: '###', route: '/home'},
+            // {icon: 'mdi-map-marker-outline', text: 'login', route: '/admin'},
             // {icon: 'mdi-logout', text: 'Wyloguj', route: '/end'},
         ],
-    })
+    }),
+    methods: {
+        logout() {
+            this.$store.dispatch('logout');
+        }
+    }
 }
 </script>
 

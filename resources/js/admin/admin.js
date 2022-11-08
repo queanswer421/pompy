@@ -1,12 +1,19 @@
 require('./bootstrap');
 import Vue from 'vue'
 import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.min.css'
+import '../../../node_modules/vuetify/dist/vuetify.min.css'
 
-import router from './router'
-import store from './store'
+import router from './router.js'
+import store from './store.js'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+
+import BootstrapVue from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+import Vuelidate from 'vuelidate'
+Vue.use(Vuelidate)
+Vue.use(BootstrapVue);
 
 Vue.use(VueAxios, axios);
 Vue.config.productionTip = false

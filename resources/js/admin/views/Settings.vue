@@ -10,17 +10,34 @@
     </v-row>
     <v-row class="mt-n5">
       <v-col cols="12" sm="12">
-        <ProducerTable />
+        <v-card>
+    <v-tabs
+      v-model="tab"
+      background-color="primary"
+      dark
+    >
+      <v-tab
+        v-for="item in items"
+        :key="item.tab"
+      >
+        {{ item.tab }}
+      </v-tab>
+    </v-tabs>
+
+    <v-tabs-items v-model="tab">
+      <v-tab-item
+        v-for="item in items"
+        :key="item.tab"
+      >
+        <v-card flat>
+          <component v-bind:is="item.content"></component>
+        </v-card>
+      </v-tab-item>
+    </v-tabs-items>
+  </v-card>
       </v-col>
     </v-row>
-    <v-row class="mt-5">
-      <v-col cols="12" sm="6">
-        <CategoryTable />
-      </v-col>
-      <v-col cols="12" sm="6">
-        <TypeTable />
-      </v-col>
-    </v-row>
+
   </v-container>
 </template>
 <script>
@@ -30,7 +47,12 @@
   export default {
     name: "Settings",
     data: () => ({
-     
+      tab: null,
+        items: [
+          { tab: 'Producenci', content: 'ProducerTable' },
+          { tab: 'Kategorie', content: 'CategoryTable' },
+          { tab: 'Typy', content: 'TypeTable' },
+        ],
     }),
     components: {
       ProducerTable,

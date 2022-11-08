@@ -5,12 +5,6 @@
              <CompanyTable />
             </v-col>
     </v-row>
-    <v-row class="mt-12">
-            <v-col cols="12" sm="12">
-      <!-- <FetchCompany /> -->
-    </v-col>
-    </v-row>
-
   </v-container>
 </template>
 <script>

@@ -96,10 +96,12 @@
                         </div>
                     </div>
 
-                    <a href="#" class="font-medium hover:text-purple-900">Dla Twojej firmy</a>
+                    <!-- <a href="#" class="font-medium hover:text-purple-900">Dla Twojej firmy</a>
                     <a href="#" class="font-medium hover:text-purple-900">Cennik</a>
-                    <a href="#" class="font-medium hover:text-purple-900">O nas</a>
-                    <a href="/admin" class="font-medium hover:text-purple-900">admin</a>
+                    <a href="#" class="font-medium hover:text-purple-900">O nas</a> -->
+                    <a href="/admin" class="font-medium hover:text-purple-900">administrator</a>
+                    <a href="/managers" class="font-medium hover:text-purple-900">manager</a>
+                    <a href="/employers" class="font-medium hover:text-purple-900">employer</a>
                 </nav>
 
                 <div class="hidden lg:flex lg:flex-1 items-center justify-end">
