@@ -19,6 +19,11 @@ class CreateEmployersTable extends Migration
             $table->string('surname');
             $table->string('email')->unique();
             $table->string('password');
+            $table->unsignedInteger('company_id');
+            $table->foreign('company_id')
+                ->references('id')
+                ->on('companies')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
